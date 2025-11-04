@@ -2,8 +2,8 @@ import { handleInput } from '../../../Utils/Admin/handleAdminForm'
 
 function AdDescription({ adminFormData, setAdminFormData }) {
   return (
-    <div className="flex flex-col w-full lg:w-1/2 lg:px-4 gap-2">
-      <label htmlFor="description" className="ml-1 font-bold">
+    <div className="flex flex-col w-full lg:w-1/2 lg:px-4 gap-2 border-t-2 border-t-amber-50 lg:border-0 mt-4 lg:mt-0">
+      <label htmlFor="description" className="ml-1 font-bold mt-2 lg:mt-0">
         Description
       </label>
       <textarea
