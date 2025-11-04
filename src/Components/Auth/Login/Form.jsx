@@ -1,9 +1,11 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 
-function Form() {
+function Form(props) {
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
   const [doRemember, setDoRemember] = useState(false)
+  const navigate = useNavigate()
 
   const handleSubmit = (e) => {
     e.preventDefault()
@@ -17,6 +19,8 @@ function Form() {
     })
     setEmail('')
     setPass('')
+    if (props.isAdmin) return navigate('/Employee')
+    navigate('/admin')
   }
   return (
     <div className="w-[93%] sm:w-[80%]  lg:w-[75%] xl:w-[60%] flex flex-col">

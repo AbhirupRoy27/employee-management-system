@@ -3,17 +3,17 @@ function LoginType(props) {
     <div className="flex bg-gray-100 rounded-full w-max">
       <h3
         className={`w-1/2 flex items-center justify-center font-bold transform transition-colors duration-600 ${
-          props.isEmp ? 'text-emerald-700' : 'bg-gray-300 text-black'
+          props.isAdmin ? 'text-emerald-700' : 'bg-gray-300 text-black'
         } text-sm cursor-pointer active:scale-101 py-3 px-6 rounded-full`}
-        onClick={() => props.setIsEmp(false)}
+        onClick={() => props.setIsAdmin(false)}
       >
         Admin Login
       </h3>
       <h3
         className={`w-1/2 flex items-center justify-center font-bold text-sm cursor-pointer active:scale-101 py-3 px-6 rounded-full text-nowrap ${
-          props.isEmp ? 'bg-gray-300 text-black' : 'text-emerald-700'
+          props.isAdmin ? 'bg-gray-300 text-black' : 'text-emerald-700'
         }`}
-        onClick={() => props.setIsEmp(true)}
+        onClick={() => props.setIsAdmin(true)}
       >
         Employee Login
       </h3>
