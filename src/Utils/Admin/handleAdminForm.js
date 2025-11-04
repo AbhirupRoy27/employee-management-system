@@ -9,7 +9,7 @@ export default function handleAdminForm(e, adminFormData, setAdminFormData) {
     date: '',
     description: '',
     email: '',
-    category: 'Development',
+    category: 'Select',
   })
 }
 
