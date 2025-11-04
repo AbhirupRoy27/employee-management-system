@@ -8,6 +8,7 @@ function App() {
   return (
     <>
       <Routes>
+        <Route index element={<Login />} />
         <Route path="/" element={<Login />} />
         <Route path="/Admin" element={<AdminDashboard />} />
         <Route path="/Employee" element={<EmpDashboard />} />

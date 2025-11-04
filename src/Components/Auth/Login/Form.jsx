@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import CheckAdmin from '../../../Utils/Admin/CheckAdmin'
 
 function Form(props) {
   const [email, setEmail] = useState('')
@@ -19,8 +20,7 @@ function Form(props) {
     })
     setEmail('')
     setPass('')
-    if (props.isAdmin) return navigate('/Employee')
-    navigate('/admin')
+    CheckAdmin(props.isAdmin, navigate)
   }
   return (
     <div className="w-[93%] sm:w-[80%]  lg:w-[75%] xl:w-[60%] flex flex-col">

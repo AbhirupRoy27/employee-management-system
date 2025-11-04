@@ -1,9 +1,10 @@
 import React from 'react'
+import Header from '../../Components/Dashboard/Common/Header'
 
 function EmpDashboard() {
   return (
-    <div>
-      <h1>EmpDashboard</h1>
+    <div className="bg-[#1C1C1C] min-h-screen min-w-[354px]">
+      <Header />
     </div>
   )
 }
