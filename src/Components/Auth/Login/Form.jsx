@@ -1,11 +1,12 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import CheckAdmin from '../../../Utils/Admin/CheckAdmin'
+import generateToken from '../../../Utils/Login/Token'
 
 function Form(props) {
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
-  const [doRemember, setDoRemember] = useState(false)
+  const [doRemember, setDoRemember] = useState(true)
   const navigate = useNavigate()
 
   const handleSubmit = (e) => {
@@ -13,10 +14,18 @@ function Form(props) {
     if (email === '' || pass === '') {
       return
     }
+    if (doRemember) {
+      if (!props.isAdmin) {
+        const token = generateToken()
+        localStorage.setItem('admin-token', token)
+      } else {
+        const token = generateToken()
+        localStorage.setItem('emp-token', token)
+      }
+    }
     console.log({
       user_email: email,
       password: pass,
-      Should_Remember: doRemember,
     })
     setEmail('')
     setPass('')

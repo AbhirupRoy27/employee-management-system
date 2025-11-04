@@ -1,4 +1,3 @@
-import React from 'react'
 import { handleInput } from '../../../Utils/Admin/handleAdminForm'
 
 function AdFields({ adminFormData, setAdminFormData }) {
