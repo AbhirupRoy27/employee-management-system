@@ -6,7 +6,7 @@ import generateToken from '../../../Utils/Login/Token'
 function Form(props) {
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
-  const [doRemember, setDoRemember] = useState(true)
+  const [doRemember, setDoRemember] = useState(false)
   const navigate = useNavigate()
 
   const handleSubmit = (e) => {
@@ -14,15 +14,17 @@ function Form(props) {
     if (email === '' || pass === '') {
       return
     }
-    if (doRemember) {
-      if (!props.isAdmin) {
-        const token = generateToken()
-        localStorage.setItem('admin-token', token)
-      } else {
-        const token = generateToken()
-        localStorage.setItem('emp-token', token)
-      }
+
+    if (!props.isAdmin) {
+      const token = generateToken()
+      localStorage.setItem('admin-token', token)
+      localStorage.setItem('role', 'admin')
+    } else {
+      const token = generateToken()
+      localStorage.setItem('emp-token', token)
+      localStorage.setItem('role', '')
     }
+
     console.log({
       user_email: email,
       password: pass,
@@ -54,7 +56,7 @@ function Form(props) {
             value={pass}
             onChange={(e) => setPass(e.target.value)}
             placeholder="Password"
-            type="password"
+            type={doRemember ? 'text' : 'password'}
             className="outline-none bg-gray-50 rounded-full w-full  px-6 py-3 text-black placeholder:text-gray-400 focus:placeholder:text-black focus:bg-gray-50/90 tracking-wider"
           />
         </div>
@@ -65,7 +67,9 @@ function Form(props) {
               type="checkbox"
               onChange={(e) => setDoRemember(e.target.checked)}
             />
-            <label htmlFor="remember">Remember Me</label>
+            <label htmlFor="remember" className="tracking-wider text-sm">
+              {doRemember ? 'Hide' : 'Show'}
+            </label>
           </span>
           <h3
             className="text-red-600 active:text-red-800 cursor-pointer"

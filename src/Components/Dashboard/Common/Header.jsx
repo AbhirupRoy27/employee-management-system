@@ -15,9 +15,11 @@ function Header() {
         onClick={() => {
           if (!isAdmin) {
             localStorage.removeItem('admin-token')
+            localStorage.removeItem('role')
             return navigate('/')
           } else {
             localStorage.removeItem('emp-token')
+            localStorage.removeItem('role')
             return navigate('/')
           }
         }}
