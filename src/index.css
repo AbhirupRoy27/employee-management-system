@@ -23,3 +23,11 @@
 .eye__pupil {
   animation: movePupil 4s infinite ease-in-out;
 }
+
+#emp-task::-webkit-scrollbar {
+  display: none;
+}
+
+body {
+  background-color: #1c1c1c;
+}

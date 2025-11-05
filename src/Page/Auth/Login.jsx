@@ -14,7 +14,7 @@ function Login() {
     const role = localStorage.getItem('role')
 
     if (token && role) {
-      navigate(role === 'admin' ? '/admin-dashboard' : '/mployee-dashboard')
+      navigate(role === 'admin' ? '/admin-dashboard' : '/employee-dashboard')
     }
   }, [])
 
