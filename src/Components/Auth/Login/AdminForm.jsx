@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import dashboardNavigator from '../../../Utils/Admin/dashboardNavigator'
 import generateToken from '../../../Utils/Login/Token'
+import adminLogin from '../../../Utils/Admin/adminLogin'
 
 function AdminForm() {
   const [email, setEmail] = useState('')
@@ -9,23 +10,25 @@ function AdminForm() {
   const [doRemember, setDoRemember] = useState(false)
   const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault()
     if (email === '' || pass === '') {
       return
     }
 
-    const token = generateToken()
-    localStorage.setItem('admin-token', token)
-    localStorage.setItem('role', 'admin')
+    const inputs = { email: email, password: pass }
+    const response = await adminLogin(inputs)
+    if (response.isMatch) {
+      const token = generateToken()
+      localStorage.setItem('admin-token', token)
+      localStorage.setItem('role', 'admin')
 
-    console.log({
-      user_email: email,
-      password: pass,
-    })
-    setEmail('')
-    setPass('')
-    dashboardNavigator('/admin-dashboard', navigate)
+      setEmail('')
+      setPass('')
+      dashboardNavigator('/admin-dashboard', navigate)
+    } else {
+      return alert('wrong Credentials')
+    }
   }
   return (
     <div className="w-[93%] sm:w-[80%]  lg:w-[75%] xl:w-[60%] flex flex-col">
@@ -40,7 +43,7 @@ function AdminForm() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
             type="email"
-            className="outline-none bg-gray-50 rounded-full w-full  px-6 py-3 text-black placeholder:text-gray-400  focus:placeholder:text-black focus:bg-gray-50/90 tracking-wider"
+            className="outline-none bg-gray-50 rounded-full w-full  px-6 py-3 text-black placeholder:text-gray-400 transform transition-all duration-300 focus:placeholder:text-black focus:bg-gray-50/90 tracking-wider"
           />
           <label htmlFor="password" className=" ml-4 cursor-pointer">
             Admin Password
@@ -51,7 +54,7 @@ function AdminForm() {
             onChange={(e) => setPass(e.target.value)}
             placeholder="Password"
             type={doRemember ? 'text' : 'password'}
-            className="outline-none bg-gray-50 rounded-full w-full  px-6 py-3 text-black placeholder:text-gray-400 focus:placeholder:text-black focus:bg-gray-50/90 tracking-wider"
+            className="outline-none bg-gray-50 rounded-full w-full  px-6 py-3 text-black placeholder:text-gray-400 transform transition-all duration-300 focus:placeholder:text-black focus:bg-gray-50/90 tracking-wider"
           />
         </div>
         <div className="flex justify-between items-center mt-2 px-4">
@@ -61,13 +64,13 @@ function AdminForm() {
               type="checkbox"
               onChange={(e) => setDoRemember(e.target.checked)}
             />
-            <label htmlFor="remember" className="tracking-wider text-sm">
+            <label htmlFor="remember" className="tracking-wider text-sm ">
               {doRemember ? 'Hide' : 'Show'}
             </label>
           </span>
           <h3
-            className="text-red-600 active:text-red-800 cursor-pointer"
-            onClick={() => alert('Contact The Admin')}
+            className="text-red-600 active:text-red-800 cursor-pointer text-sm"
+            onClick={() => alert('Comming soon')}
           >
             Forgot Password
           </h3>
@@ -75,9 +78,9 @@ function AdminForm() {
         <div className="flex justify-center items-center mt-4">
           <button
             type="submit"
-            className="bg-emerald-800 hover:bg-emerald-900 font-bold px-10 text-xl py-3 rounded-full cursor-pointer tracking-wider active:scale-102"
+            className="bg-emerald-800 transform transition-all duration-300 hover:bg-emerald-900 hover:shadow-green-600 shadow-sm font-bold px-10 text-xl py-3 rounded-full cursor-pointer tracking-wider active:scale-102"
           >
-            Login
+            Admin Login
           </button>
         </div>
       </form>
