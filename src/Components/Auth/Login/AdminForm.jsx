@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import CheckAdmin from '../../../Utils/Admin/CheckAdmin'
 import generateToken from '../../../Utils/Login/Token'
 
-function Form(props) {
+function AdminForm() {
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
   const [doRemember, setDoRemember] = useState(false)
@@ -15,15 +15,9 @@ function Form(props) {
       return
     }
 
-    if (!props.isAdmin) {
-      const token = generateToken()
-      localStorage.setItem('admin-token', token)
-      localStorage.setItem('role', 'admin')
-    } else {
-      const token = generateToken()
-      localStorage.setItem('emp-token', token)
-      localStorage.setItem('role', '')
-    }
+    const token = generateToken()
+    localStorage.setItem('admin-token', token)
+    localStorage.setItem('role', 'admin')
 
     console.log({
       user_email: email,
@@ -31,14 +25,14 @@ function Form(props) {
     })
     setEmail('')
     setPass('')
-    CheckAdmin(props.isAdmin, navigate)
+    CheckAdmin('/admin-dashboard', navigate)
   }
   return (
     <div className="w-[93%] sm:w-[80%]  lg:w-[75%] xl:w-[60%] flex flex-col">
       <form onSubmit={(e) => handleSubmit(e)} className="w-full">
         <div className="flex flex-col gap-2">
           <label htmlFor="email" className="ml-4 cursor-pointer">
-            Email
+            Admin Email
           </label>
           <input
             id="email"
@@ -49,7 +43,7 @@ function Form(props) {
             className="outline-none bg-gray-50 rounded-full w-full  px-6 py-3 text-black placeholder:text-gray-400  focus:placeholder:text-black focus:bg-gray-50/90 tracking-wider"
           />
           <label htmlFor="password" className=" ml-4 cursor-pointer">
-            Password
+            Admin Password
           </label>
           <input
             id="password"
@@ -91,4 +85,4 @@ function Form(props) {
   )
 }
 
-export default Form
+export default AdminForm

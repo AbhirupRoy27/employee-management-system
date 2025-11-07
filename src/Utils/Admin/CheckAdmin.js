@@ -1,4 +1,4 @@
-export default function CheckAdmin(isAdmin, navigate) {
-  if (isAdmin) return navigate('/Employee-dashboard')
-  navigate('/admin-dashboard')
+export default function CheckAdmin(url, navigate) {
+  if (url) return navigate(url)
+  navigate('/404')
 }
