@@ -1,6 +1,4 @@
-import React from 'react'
 import Header from '../../Components/Dashboard/Common/Header'
-import Login from '../Auth/Login'
 import TaskInfo from '../../Components/Dashboard/Employee/TaskInfo'
 import TaskList from '../../Components/Dashboard/Employee/TaskList'
 import TaskView from '../../Components/Dashboard/Employee/TaskView'

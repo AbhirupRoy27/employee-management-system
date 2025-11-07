@@ -1,5 +1,3 @@
-import React from 'react'
-
 function TaskView() {
   return (
     <div className="mt-1 lg:mt-0 lg:ml-1 lg:w-1/2 bg-gray-200/80 rounded-lg p-2 min-h-[630px]">

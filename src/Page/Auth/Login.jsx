@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import { useEffect } from 'react'
 import Image from '../../Components/Auth/Login/Image'
 import Form from '../../Components/Auth/Login/EmpForm'
 import LoginType from './LoginType'

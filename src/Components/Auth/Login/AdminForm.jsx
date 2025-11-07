@@ -1,6 +1,6 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import CheckAdmin from '../../../Utils/Admin/CheckAdmin'
+import dashboardNavigator from '../../../Utils/Admin/dashboardNavigator'
 import generateToken from '../../../Utils/Login/Token'
 
 function AdminForm() {
@@ -25,7 +25,7 @@ function AdminForm() {
     })
     setEmail('')
     setPass('')
-    CheckAdmin('/admin-dashboard', navigate)
+    dashboardNavigator('/admin-dashboard', navigate)
   }
   return (
     <div className="w-[93%] sm:w-[80%]  lg:w-[75%] xl:w-[60%] flex flex-col">
