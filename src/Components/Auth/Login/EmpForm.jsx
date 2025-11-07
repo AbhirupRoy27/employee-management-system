@@ -17,7 +17,7 @@ function Form() {
 
     const token = generateToken()
     localStorage.setItem('emp-token', token)
-    localStorage.setItem('role', '')
+    localStorage.setItem('role', 'employee')
 
     console.log({
       user_email: email,
