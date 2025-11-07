@@ -42,7 +42,7 @@ function TaskInfo() {
             <strong className=" font-(--font-poppins) text-[64px] md:text-[72px] leading-none">
               0
             </strong>
-            <h1 className="font-medium font-(--font-poppins) text-[16px] md:text-[18px] tracking-wide leading-none h-10 mt-2 uppercase">
+            <h1 className="font-medium text-[16px] md:text-[18px] tracking-wide leading-none h-10 mt-2 uppercase">
               {p.text}
             </h1>
           </div>

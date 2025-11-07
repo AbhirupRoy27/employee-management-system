@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react'
+import { Link } from 'react-router-dom'
 
 const ErrorPage = () => {
   useEffect(() => {
@@ -40,12 +41,12 @@ const ErrorPage = () => {
         </div>
 
         {/* 🔙 Button */}
-        <a
-          href="/"
-          className="font-mono text-white border border-yellow-400 px-6 py-3 rounded-xl text-lg font-light shadow-[0px_7px_0px_-2px_#faca2e] hover:shadow-none hover:bg-yellow-400 hover:text-black transition-all duration-300"
+        <Link
+          to="/"
+          className="cursor-pointer font-mono text-white border border-yellow-400 px-6 py-3 rounded-xl text-lg font-light shadow-[0px_7px_0px_-2px_#faca2e] hover:shadow-none hover:bg-yellow-400 hover:text-black transition-all duration-300"
         >
           Back to home
-        </a>
+        </Link>
       </div>
     </main>
   )

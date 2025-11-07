@@ -5,6 +5,8 @@ import AdminDashboard from './Page/Dashboard/AdminDashboard'
 import NotFound from './Page/NotFound/NotFound'
 import ProtectedRoute from './Components/Auth/ProtectedRoute/ProtectedRoute'
 import AdminProtectedRoute from './Components/Auth/ProtectedRoute/AdminProtectedRoute'
+import TaskView from './Components/Dashboard/Employee/TaskView'
+import TaskList from './Components/Dashboard/Employee/TaskList'
 
 function App() {
   return (
@@ -18,7 +20,11 @@ function App() {
               <EmpDashboard />
             </ProtectedRoute>
           }
-        />
+        >
+          <Route index element={<TaskList />} />
+          <Route path="task-details" element={<TaskView />} />
+        </Route>
+
         <Route
           path="/admin-dashboard"
           element={
