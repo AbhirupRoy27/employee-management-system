@@ -28,6 +28,11 @@
   display: none;
 }
 
+@theme {
+  --font-poppins: "Poppins", sans-serif;
+  --font-inter: "Inter", sans-serif;
+}
+
 body {
   background-color: #1c1c1c;
 }
