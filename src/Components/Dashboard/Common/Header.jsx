@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 import { useUserContext } from '../../../Context/Usercontext'
 import { CircleUser } from 'lucide-react'
 
-function Header() {
+function Header(props) {
   const { isAdmin } = useUserContext()
   const navigate = useNavigate()
   return (
@@ -24,9 +24,7 @@ function Header() {
             localStorage.removeItem('role')
             return navigate('/')
           } else {
-            localStorage.removeItem('emp-token')
-            localStorage.removeItem('role')
-            return navigate('/')
+            props.setIsActive(true)
           }
         }}
       >

@@ -10,6 +10,7 @@ import AdminProtectedRoute from './Components/Auth/ProtectedRoute/AdminProtected
 import TaskList from './Components/Dashboard/Employee/TaskList'
 import { Loader } from './Components/Dashboard/Employee/TaskView/TaskView'
 import TaskInfo from './Components/Dashboard/Employee/TaskInfo'
+import Logout from './Page/Logout/Logout'
 
 const TaskView = lazy(() =>
   import('./Components/Dashboard/Employee/TaskView/TaskView')
@@ -46,7 +47,6 @@ function App() {
             }
           />
         </Route>
-
         <Route
           path="/admin-dashboard"
           element={
