@@ -1,0 +1,107 @@
+[
+  {
+    "id": 1,
+    "name": "Abhirup Roy",
+    "Depertment": "Software Developemnt",
+    "email": "abhirup@emsemployee.com",
+    "joined_On": "25-12-2024",
+    "tasks": [
+      {
+        "task_id": 1001,
+        "task_title": "Implement user authentication module",
+        "task_description": "pending",
+        "task_deadline": "01-12-2024",
+        "category": "Backend Development",
+        "assigned_by": "lead1@emsadmin.com"
+      },
+      {
+        "task_id": 1002,
+        "task_title": "Design database schema for analytics service",
+        "task_description": "accepted",
+        "task_deadline": "02-12-2024",
+        "category": "Database Design",
+        "assigned_by": "lead2@emsadmin.com"
+      },
+      {
+        "task_id": 1003,
+        "task_title": "Develop REST APIs for user profiles",
+        "task_description": "completed",
+        "task_deadline": "03-12-2024",
+        "category": "API Development",
+        "assigned_by": "lead3@emsadmin.com"
+      },
+      {
+        "task_id": 1004,
+        "task_title": "Implement CI/CD pipeline using GitHub Actions",
+        "task_description": "pending",
+        "task_deadline": "04-12-2024",
+        "category": "DevOps",
+        "assigned_by": "lead4@emsadmin.com"
+      },
+      {
+        "task_id": 1005,
+        "task_title": "Optimize query performance for dashboard metrics",
+        "task_description": "failed",
+        "task_deadline": "05-12-2024",
+        "category": "Database Optimization",
+        "assigned_by": "lead5@emsadmin.com"
+      },
+      {
+        "task_id": 1006,
+        "task_title": "Create React components for admin dashboard",
+        "task_description": "accepted",
+        "task_deadline": "06-12-2024",
+        "category": "Frontend Development",
+        "assigned_by": "lead6@emsadmin.com"
+      },
+      {
+        "task_id": 1007,
+        "task_title": "Implement unit tests for payment gateway module",
+        "task_description": "completed",
+        "task_deadline": "07-12-2024",
+        "category": "Testing",
+        "assigned_by": "lead7@emsadmin.com"
+      },
+      {
+        "task_id": 1008,
+        "task_title": "Integrate third-party OAuth login providers",
+        "task_description": "pending",
+        "task_deadline": "08-12-2024",
+        "category": "Integration",
+        "assigned_by": "lead8@emsadmin.com"
+      },
+      {
+        "task_id": 1009,
+        "task_title": "Develop microservice for notifications system",
+        "task_description": "accepted",
+        "task_deadline": "09-12-2024",
+        "category": "Microservices",
+        "assigned_by": "lead9@emsadmin.com"
+      },
+      {
+        "task_id": 1010,
+        "task_title": "Fix memory leak in caching layer",
+        "task_description": "completed",
+        "task_deadline": "10-12-2024",
+        "category": "Backend Maintenance",
+        "assigned_by": "lead10@emsadmin.com"
+      },
+      {
+        "task_id": 1011,
+        "task_title": "Set up monitoring with Prometheus and Grafana",
+        "task_description": "pending",
+        "task_deadline": "11-12-2024",
+        "category": "DevOps",
+        "assigned_by": "lead11@emsadmin.com"
+      },
+      {
+        "task_id": 1012,
+        "task_title": "Migrate legacy codebase to TypeScript",
+        "task_description": "failed",
+        "task_deadline": "12-12-2024",
+        "category": "Refactoring",
+        "assigned_by": "lead12@emsadmin.com"
+      }
+    ]
+  }
+]

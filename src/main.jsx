@@ -5,12 +5,15 @@ import App from './App.jsx'
 import { BrowserRouter } from 'react-router-dom'
 import Usercontext from './Context/Usercontext.jsx'
 import UsercontextProvider from './Context/Usercontext.jsx'
+import TaskProvider from './Context/taskContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <>
     <BrowserRouter>
       <UsercontextProvider>
-        <App />
+        <TaskProvider>
+          <App />
+        </TaskProvider>
       </UsercontextProvider>
     </BrowserRouter>
   </>
