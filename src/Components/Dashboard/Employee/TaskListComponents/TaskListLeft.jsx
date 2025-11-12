@@ -1,17 +1,21 @@
+import { useTask } from '../../../../Context/taskContext'
 import handleEmpListClick from '../../../../Utils/Emp-Dashboard/handleEmpListClick'
 
 function TaskListLeft({ navigate, task }) {
+  const { setTaskDetails, taskDetails } = useTask()
   return (
     <div className="cursor-pointer w-full">
       <div className="flex flex-col sm:flex-row sm:gap-2 sm:items-center">
         <p
           className="text-xl tracking-wide font-poppins hover:underline"
-          onClick={() => handleEmpListClick(navigate)}
+          onClick={() =>
+            handleEmpListClick(navigate, task, setTaskDetails, taskDetails)
+          }
         >
           <b>{task.task_title}</b>
         </p>
         <b
-          className="text-blue-900 text-sm hover:text-blue-950 active:scale-95"
+          className="text-blue-900 text-md hover:text-blue-950 active:scale-95"
           onClick={() => handleEmpListClick(navigate)}
         >
           Details
