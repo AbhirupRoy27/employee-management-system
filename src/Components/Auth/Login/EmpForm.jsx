@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom'
 import dashboardNavigator from '../../../Utils/Admin/dashboardNavigator'
 import generateToken from '../../../Utils/Login/Token'
 
-function Form() {
+function Form({ setIsChecking }) {
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
   const [doRemember, setDoRemember] = useState(false)
@@ -11,8 +11,12 @@ function Form() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    setIsChecking(true)
     if (email === '' || pass === '') {
-      return
+      return setTimeout(() => {
+        setIsChecking(false)
+        alert('Invalid Username/Password')
+      }, 2000)
     }
 
     const token = generateToken()

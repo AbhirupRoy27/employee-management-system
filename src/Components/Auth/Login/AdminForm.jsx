@@ -4,7 +4,7 @@ import dashboardNavigator from '../../../Utils/Admin/dashboardNavigator'
 import generateToken from '../../../Utils/Login/Token'
 import adminLogin from '../../../Utils/Admin/adminLogin'
 
-function AdminForm() {
+function AdminForm({ setIsChecking }) {
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
   const [doRemember, setDoRemember] = useState(false)
@@ -12,12 +12,17 @@ function AdminForm() {
 
   const handleSubmit = async (e) => {
     e.preventDefault()
+    setIsChecking(true)
     if (email === '' || pass === '') {
-      return
+      return setTimeout(() => {
+        setIsChecking(false)
+        alert('Invalid Username/Password')
+      }, 2000)
     }
 
     const inputs = { email: email, password: pass }
     const response = await adminLogin(inputs)
+    setIsChecking(false)
     if (response.isMatch) {
       const token = generateToken()
       localStorage.setItem('admin-token', token)

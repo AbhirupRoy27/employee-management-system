@@ -5,6 +5,7 @@ import LoginType from './LoginType'
 import { useUserContext } from '../../Context/Usercontext'
 import { useNavigate } from 'react-router-dom'
 import AdminForm from '../../Components/Auth/Login/AdminForm'
+import { Loader } from 'lucide-react'
 
 function Login() {
   const [isChecking, setIsChecking] = useState(true)
@@ -28,7 +29,7 @@ function Login() {
   if (isChecking) {
     return (
       <div className="h-screen w-screen bg-black text-white flex justify-center items-center">
-        Checking session
+        Checking session <Loader />
       </div>
     )
   }
@@ -44,13 +45,29 @@ function Login() {
         <LoginType setIsAdmin={setIsAdmin} isAdmin={isAdmin} />
 
         {isAdmin ? (
-          <div className="w-full lg:w-[80%] flex flex-col gap-4 justify-center items-center mt-10">
-            <Form />
-          </div>
+          <>
+            <div className="mt-5 flex items-center text-gray-200 bg-gray-50/10 py-2 px-4 rounded-xl border border-gray-50/10">
+              <b className="tracking-widest text-xl mr-2">For testing visit:</b>
+              <p onClick={() => navigate('/Employee-dashboard')}>
+                /Employee-dashboard
+              </p>
+            </div>
+            <div className="w-full lg:w-[80%] flex flex-col gap-4 justify-center items-center mt-10">
+              <Form setIsChecking={setIsChecking} />
+            </div>
+          </>
         ) : (
-          <div className="w-full lg:w-[80%] flex flex-col gap-4 justify-center items-center mt-10">
-            <AdminForm />
-          </div>
+          <>
+            <div className="mt-5 flex items-center text-gray-200 bg-gray-50/10 py-2 px-4 rounded-xl border border-gray-50/10">
+              <b className="tracking-widest text-xl mr-2">For testing visit:</b>
+              <p onClick={() => navigate('/admin-dashboard')}>
+                /admin-dashboard
+              </p>
+            </div>
+            <div className="w-full lg:w-[80%] flex flex-col gap-4 justify-center items-center mt-10">
+              <AdminForm setIsChecking={setIsChecking} />
+            </div>
+          </>
         )}
       </div>
     </div>
