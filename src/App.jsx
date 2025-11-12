@@ -24,9 +24,9 @@ function App() {
         <Route
           path="/Employee-dashboard"
           element={
-            <ProtectedRoute>
-              <EmpDashboard />
-            </ProtectedRoute>
+            // <ProtectedRoute>
+            <EmpDashboard />
+            // </ProtectedRoute>
           }
         >
           <Route

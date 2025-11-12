@@ -3,6 +3,8 @@ export default function handleAdminForm(e, adminFormData, setAdminFormData) {
   if (adminFormData.category === 'Select') {
     return alert('Select a Category')
   }
+  // const date = new Date(adminFormData.date)
+  // console.log(date)
   console.log(adminFormData)
   setAdminFormData({
     title: '',
