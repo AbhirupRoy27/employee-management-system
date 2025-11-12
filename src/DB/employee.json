@@ -12,7 +12,8 @@
         "task_description": "pending",
         "task_deadline": "01-12-2024",
         "category": "Backend Development",
-        "assigned_by": "lead1@emsadmin.com"
+        "assigned_by": "arjun.mehta@emsadmin.com",
+        "admin_name": "Arjun Mehta"
       },
       {
         "task_id": 1002,
@@ -20,7 +21,8 @@
         "task_description": "accepted",
         "task_deadline": "02-12-2024",
         "category": "Database Design",
-        "assigned_by": "lead2@emsadmin.com"
+        "assigned_by": "priya.nair@emsadmin.com",
+        "admin_name": "Priya Nair"
       },
       {
         "task_id": 1003,
@@ -28,7 +30,8 @@
         "task_description": "completed",
         "task_deadline": "03-12-2024",
         "category": "API Development",
-        "assigned_by": "lead3@emsadmin.com"
+        "assigned_by": "rohan.sharma@emsadmin.com",
+        "admin_name": "Rohan Sharma"
       },
       {
         "task_id": 1004,
@@ -36,7 +39,8 @@
         "task_description": "pending",
         "task_deadline": "04-12-2024",
         "category": "DevOps",
-        "assigned_by": "lead4@emsadmin.com"
+        "assigned_by": "aisha.khan@emsadmin.com",
+        "admin_name": "Aisha Khan"
       },
       {
         "task_id": 1005,
@@ -44,7 +48,8 @@
         "task_description": "failed",
         "task_deadline": "05-12-2024",
         "category": "Database Optimization",
-        "assigned_by": "lead5@emsadmin.com"
+        "assigned_by": "vikram.patel@emsadmin.com",
+        "admin_name": "Vikram Patel"
       },
       {
         "task_id": 1006,
@@ -52,7 +57,8 @@
         "task_description": "accepted",
         "task_deadline": "06-12-2024",
         "category": "Frontend Development",
-        "assigned_by": "lead6@emsadmin.com"
+        "assigned_by": "neha.iyer@emsadmin.com",
+        "admin_name": "Neha Iyer"
       },
       {
         "task_id": 1007,
@@ -60,7 +66,8 @@
         "task_description": "completed",
         "task_deadline": "07-12-2024",
         "category": "Testing",
-        "assigned_by": "lead7@emsadmin.com"
+        "assigned_by": "karan.bansal@emsadmin.com",
+        "admin_name": "Karan Bansal"
       },
       {
         "task_id": 1008,
@@ -68,7 +75,8 @@
         "task_description": "pending",
         "task_deadline": "08-12-2024",
         "category": "Integration",
-        "assigned_by": "lead8@emsadmin.com"
+        "assigned_by": "sneha.reddy@emsadmin.com",
+        "admin_name": "Sneha Reddy"
       },
       {
         "task_id": 1009,
@@ -76,7 +84,8 @@
         "task_description": "accepted",
         "task_deadline": "09-12-2024",
         "category": "Microservices",
-        "assigned_by": "lead9@emsadmin.com"
+        "assigned_by": "aditya.deshmukh@emsadmin.com",
+        "admin_name": "Aditya Deshmukh"
       },
       {
         "task_id": 1010,
@@ -84,7 +93,8 @@
         "task_description": "completed",
         "task_deadline": "10-12-2024",
         "category": "Backend Maintenance",
-        "assigned_by": "lead10@emsadmin.com"
+        "assigned_by": "meera.joshi@emsadmin.com",
+        "admin_name": "Meera Joshi"
       },
       {
         "task_id": 1011,
@@ -92,7 +102,8 @@
         "task_description": "pending",
         "task_deadline": "11-12-2024",
         "category": "DevOps",
-        "assigned_by": "lead11@emsadmin.com"
+        "assigned_by": "rahul.chatterjee@emsadmin.com",
+        "admin_name": "Rahul Chatterjee"
       },
       {
         "task_id": 1012,
@@ -100,7 +111,17 @@
         "task_description": "failed",
         "task_deadline": "12-12-2024",
         "category": "Refactoring",
-        "assigned_by": "lead12@emsadmin.com"
+        "assigned_by": "divya.menon@emsadmin.com",
+        "admin_name": "Divya Menon"
+      },
+      {
+        "task_id": 1013,
+        "task_title": "Design database schema for analytics service",
+        "task_description": "accepted",
+        "task_deadline": "02-12-2024",
+        "category": "Database Design",
+        "assigned_by": "priya.nair@emsadmin.com",
+        "admin_name": "Priya Nair"
       }
     ]
   }
