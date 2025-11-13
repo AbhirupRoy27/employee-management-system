@@ -9,119 +9,122 @@
       {
         "task_id": 1001,
         "task_title": "Implement user authentication module",
-        "task_description": "pending",
+        "task_status": "pending",
         "task_deadline": "01-12-2024",
         "category": "Backend Development",
         "assigned_by": "arjun.mehta@emsadmin.com",
-        "admin_name": "Arjun Mehta"
+        "admin_name": "Arjun Mehta",
+        "task_description": "This task involves developing a secure user authentication module that allows users to register, log in, and reset their passwords. Please implement this using modern security standards such as hashed passwords, token-based authentication, and proper session handling. The login flow should be both user-friendly and resilient to potential security threats. Ensure proper validation and error messages for every input. This module will be used across multiple applications, so it must be built with reusability in mind. Integrate it with our existing backend and ensure compatibility with the front-end team’s components. Test thoroughly before submission. This task is critical for our upcoming product demo, and I expect it to be completed on or before the given deadline."
       },
       {
         "task_id": 1002,
         "task_title": "Design database schema for analytics service",
-        "task_description": "accepted",
+        "task_status": "accepted",
         "task_deadline": "02-12-2024",
         "category": "Database Design",
         "assigned_by": "priya.nair@emsadmin.com",
-        "admin_name": "Priya Nair"
+        "admin_name": "Priya Nair",
+        "task_description": "We need you to design a robust and scalable database schema for our new analytics service. The schema should efficiently handle large amounts of user interaction data while maintaining fast query performance. Focus on designing clean, normalized tables that will allow flexible data analysis later. Make sure to include relationships for users, sessions, events, and metrics. Consider indexing strategies and potential data growth. Documentation of each table and column is mandatory. Coordinate with the backend developers to ensure your schema fits with their API structure. This task is important for the foundation of our reporting system, so accuracy and performance optimization are key. Please complete and review the schema before the deadline."
       },
       {
         "task_id": 1003,
         "task_title": "Develop REST APIs for user profiles",
-        "task_description": "completed",
+        "task_status": "completed",
         "task_deadline": "03-12-2024",
         "category": "API Development",
         "assigned_by": "rohan.sharma@emsadmin.com",
-        "admin_name": "Rohan Sharma"
+        "admin_name": "Rohan Sharma",
+        "task_description": "Your responsibility is to build RESTful APIs for the user profile module. These APIs should handle profile creation, updating user information, and fetching profile details. Follow our standard API guidelines for naming conventions, response structures, and authentication. The APIs should be optimized for both speed and reliability. Include detailed Swagger documentation for easier front-end integration. Please ensure input validation, proper error handling, and use of secure endpoints. The API endpoints will serve multiple applications, so maintain flexibility and backward compatibility. Make sure unit tests are written and all cases pass successfully. This is an essential part of the system, and timely completion will ensure the smooth rollout of our next version."
       },
       {
         "task_id": 1004,
         "task_title": "Implement CI/CD pipeline using GitHub Actions",
-        "task_description": "pending",
+        "task_status": "pending",
         "task_deadline": "04-12-2024",
         "category": "DevOps",
         "assigned_by": "aisha.khan@emsadmin.com",
-        "admin_name": "Aisha Khan"
+        "admin_name": "Aisha Khan",
+        "task_description": "This task requires you to set up a continuous integration and continuous deployment (CI/CD) pipeline using GitHub Actions. The pipeline should automatically build, test, and deploy code to our staging environment whenever changes are pushed to the main branch. Please ensure that the pipeline includes linting, test coverage reports, and rollback options in case of failed deployments. Document each step clearly so that other team members can modify it if needed. The setup should improve our deployment reliability and reduce manual effort. Communicate with the DevOps team for environment details. This task is vital for automation and productivity; please ensure it’s completed and fully functional by the assigned deadline."
       },
       {
         "task_id": 1005,
         "task_title": "Optimize query performance for dashboard metrics",
-        "task_description": "failed",
+        "task_status": "failed",
         "task_deadline": "05-12-2024",
         "category": "Database Optimization",
         "assigned_by": "vikram.patel@emsadmin.com",
-        "admin_name": "Vikram Patel"
+        "admin_name": "Vikram Patel",
+        "task_description": "You are assigned to improve the performance of SQL queries used to generate dashboard metrics. The current queries are taking too long to execute, especially under heavy data loads. Your task is to analyze the slow-performing queries, identify bottlenecks, and rewrite them to achieve better speed without compromising data accuracy. Consider using indexing, query optimization techniques, and caching strategies. Work with the analytics team to ensure query results remain consistent. Document all improvements and the before-and-after performance benchmarks. This optimization directly impacts our client dashboards, so ensure quality and efficiency. Please treat this task as urgent and submit updates regularly."
       },
       {
         "task_id": 1006,
         "task_title": "Create React components for admin dashboard",
-        "task_description": "accepted",
+        "task_status": "accepted",
         "task_deadline": "06-12-2024",
         "category": "Frontend Development",
         "assigned_by": "neha.iyer@emsadmin.com",
-        "admin_name": "Neha Iyer"
+        "admin_name": "Neha Iyer",
+        "task_description": "The goal of this task is to create reusable React components for the new admin dashboard. Each component should follow our design system and coding standards. Focus on building components that are responsive, accessible, and easy to maintain. You should include buttons, cards, tables, and data visualization elements. Integrate mock data first, and later ensure it works with live APIs. Use proper state management with Redux or Context API. Document the props, behavior, and usage of each component. This work forms the backbone of our dashboard UI, so precision and neatness are essential. Complete this task by the deadline to allow backend integration testing."
       },
       {
         "task_id": 1007,
         "task_title": "Implement unit tests for payment gateway module",
-        "task_description": "completed",
+        "task_status": "completed",
         "task_deadline": "07-12-2024",
         "category": "Testing",
         "assigned_by": "karan.bansal@emsadmin.com",
-        "admin_name": "Karan Bansal"
+        "admin_name": "Karan Bansal",
+        "task_description": "Your job is to implement comprehensive unit tests for the payment gateway module. This module handles sensitive financial transactions, so accuracy and reliability are crucial. Write tests that cover all major scenarios including successful payments, failed transactions, network errors, and invalid input. Use Jest as the testing framework and maintain a high code coverage rate. Review all dependencies and mocks carefully. The goal is to ensure that future changes do not break existing functionality. Submit a report summarizing test coverage and key cases tested. This module is critical for our revenue flow, so make sure your testing work is thorough and well-documented before submission."
       },
       {
         "task_id": 1008,
         "task_title": "Integrate third-party OAuth login providers",
-        "task_description": "pending",
+        "task_status": "pending",
         "task_deadline": "08-12-2024",
         "category": "Integration",
         "assigned_by": "sneha.reddy@emsadmin.com",
-        "admin_name": "Sneha Reddy"
+        "admin_name": "Sneha Reddy",
+        "task_description": "You need to integrate third-party login providers such as Google, GitHub, and LinkedIn into our existing authentication system. The goal is to allow users to sign in quickly using their preferred platform. Follow OAuth 2.0 standards and ensure proper handling of access tokens and user data. Pay close attention to security aspects such as token expiration and permissions. Implement fallback options for users who prefer email sign-in. Test the integration across different browsers and devices. Provide clear documentation for each provider. This task will improve our user experience and reduce signup friction, so please ensure it’s done with precision before the deadline."
       },
       {
         "task_id": 1009,
         "task_title": "Develop microservice for notifications system",
-        "task_description": "accepted",
+        "task_status": "accepted",
         "task_deadline": "09-12-2024",
         "category": "Microservices",
         "assigned_by": "aditya.deshmukh@emsadmin.com",
-        "admin_name": "Aditya Deshmukh"
+        "admin_name": "Aditya Deshmukh",
+        "task_description": "We need a microservice dedicated to handling all user notifications—emails, in-app alerts, and push notifications. This microservice should be built using Node.js and communicate with other services via REST APIs. Focus on scalability and reliability. Implement retry logic for failed deliveries and logging for every notification sent. Ensure message templates are easy to configure and manage. Write unit tests and monitor for failed message queues. Coordinate with the DevOps team for deployment. This service will be a key component of our communication system, so it must be efficient and fault-tolerant. Please complete development and testing before the mentioned deadline."
       },
       {
         "task_id": 1010,
         "task_title": "Fix memory leak in caching layer",
-        "task_description": "completed",
+        "task_status": "completed",
         "task_deadline": "10-12-2024",
         "category": "Backend Maintenance",
         "assigned_by": "meera.joshi@emsadmin.com",
-        "admin_name": "Meera Joshi"
+        "admin_name": "Meera Joshi",
+        "task_description": "The caching layer in our backend system is consuming excessive memory over time, indicating a possible memory leak. Your task is to identify the cause of this leak and implement an effective fix. Begin by analyzing memory usage patterns and logs to find problematic modules or functions. Once identified, refactor the code and verify that resources are being released properly after use. Document the steps you take and the fixes applied. Validate improvements through performance testing. This issue has been affecting server stability and needs to be resolved urgently. Ensure the patch is stable and ready for deployment before the deadline."
       },
       {
         "task_id": 1011,
         "task_title": "Set up monitoring with Prometheus and Grafana",
-        "task_description": "pending",
+        "task_status": "pending",
         "task_deadline": "11-12-2024",
         "category": "DevOps",
         "assigned_by": "rahul.chatterjee@emsadmin.com",
-        "admin_name": "Rahul Chatterjee"
+        "admin_name": "Rahul Chatterjee",
+        "task_description": "You are required to configure a full monitoring and alerting system using Prometheus and Grafana. The goal is to track CPU usage, memory, API response times, and error rates across our infrastructure. Set up dashboards that provide real-time insights and configure alerts for abnormal behavior. Collaborate with the backend team to expose necessary metrics. Make sure dashboards are well-structured and easy to read. The setup should help us proactively detect issues and reduce downtime. This task is important for improving system reliability, so ensure it’s tested thoroughly and documented properly before final submission."
       },
       {
         "task_id": 1012,
         "task_title": "Migrate legacy codebase to TypeScript",
-        "task_description": "failed",
+        "task_status": "failed",
         "task_deadline": "12-12-2024",
         "category": "Refactoring",
         "assigned_by": "divya.menon@emsadmin.com",
-        "admin_name": "Divya Menon"
-      },
-      {
-        "task_id": 1013,
-        "task_title": "Design database schema for analytics service",
-        "task_description": "accepted",
-        "task_deadline": "02-12-2024",
-        "category": "Database Design",
-        "assigned_by": "priya.nair@emsadmin.com",
-        "admin_name": "Priya Nair"
+        "admin_name": "Divya Menon",
+        "task_description": "You are tasked with migrating our existing JavaScript codebase to TypeScript to improve maintainability and reduce runtime errors. Begin by setting up the TypeScript configuration and gradually converting modules while maintaining functionality. Use appropriate types and interfaces throughout the code. Coordinate with other developers to avoid conflicts. Ensure all existing tests pass after migration. Document any type-related issues you encounter and how you resolved them. This migration will make future development more reliable and easier to scale. Please give this task high priority and complete it within the deadline as it directly impacts our long-term development roadmap."
       }
     ]
   }

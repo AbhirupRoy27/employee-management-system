@@ -6,7 +6,7 @@ import { CircleUser } from 'lucide-react'
 function Header(props) {
   const { isAdmin } = useUserContext()
   const { tasks } = useTask()
-  const failTasks = tasks.filter((t) => t.task_description === 'failed')
+  const failTasks = tasks.filter((t) => t.task_status === 'failed')
   const failRate = Math.floor((failTasks.length / tasks.length) * 100)
 
   return (
@@ -20,7 +20,7 @@ function Header(props) {
           </div>
         </div>
         {isAdmin && (
-          <div className="bg-green-500/20 py-2 px-4 rounded-xl border border-gray-50/30">
+          <div className="cursor-alias backdrop-blur bg-green-400/10 py-2 px-4 rounded-xl border border-gray-50/30">
             <p title="Success rate" className="flex items-center gap-4">
               S/R: <b className="text-3xl">{100 - failRate || 0}%</b>
             </p>
