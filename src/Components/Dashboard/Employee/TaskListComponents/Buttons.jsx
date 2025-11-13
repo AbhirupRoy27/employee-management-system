@@ -1,16 +1,16 @@
 import { useEffect, useState } from 'react'
 
 function Buttons({ status }) {
-  const [currentStatus, setCurrentStatus] = useState(status.task_description)
+  const [currentStatus, setCurrentStatus] = useState(status.task_status)
   useEffect(() => {
-    setCurrentStatus(status.task_description)
-  }, [status.task_description])
+    setCurrentStatus(status.task_status)
+  }, [status.task_status])
 
   if (currentStatus === 'pending') {
     return (
       <div className="flex h-full justify-center items-center">
         <button
-          className="text-sm cursor-pointer font-poppins uppercase bg-blue-400 hover:bg-blue-500 hover:shadow-lg shadow-black/20 hover:text-white active:scale-95 transform transition-all duration-150 py-2 px-4 rounded-md font-bold lg:w-[140px] lg:h-14"
+          className="active:cursor-progress text-sm backdrop-blur cursor-pointer font-poppins uppercase bg-blue-800/90 hover:bg-blue-900 hover:shadow-lg shadow-black/20 text-white active:scale-95 transform transition-all duration-150 py-2 px-4 rounded-md font-bold lg:w-[140px] lg:h-14"
           onClick={(e) => {
             e.stopPropagation()
             setCurrentStatus('accepted')
@@ -24,7 +24,7 @@ function Buttons({ status }) {
     return (
       <div className="flex h-full justify-center items-center">
         <button
-          className="text-sm cursor-pointer hover:text-gray-50 font-poppins uppercase bg-green-600 hover:bg-green-700 hover:shadow-lg shadow-black/20 active:scale-95 transform transition-all duration-150 py-2 px-4 font-bold rounded-md lg:w-[140px] lg:h-14"
+          className="active:cursor-progress text-sm cursor-pointer text-gray-50 font-poppins uppercase bg-green-600 hover:bg-green-700 hover:shadow-lg shadow-black/20 active:scale-95 transform transition-all duration-150 py-2 px-4 font-bold rounded-md lg:w-[140px] lg:h-14"
           onClick={(e) => {
             e.stopPropagation()
             setCurrentStatus('completed')
