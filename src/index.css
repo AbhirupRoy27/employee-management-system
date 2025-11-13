@@ -37,6 +37,6 @@ body {
   background-color: #1c1c1c;
 }
 
-body::-webkit-scrollbar {
+.no-scrollbar::-webkit-scrollbar {
   display: none;
 }
