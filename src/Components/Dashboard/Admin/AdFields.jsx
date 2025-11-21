@@ -1,6 +1,16 @@
-import { handleInput } from '../../../Utils/Admin/handleAdminForm'
+import React from 'react'
 
-function AdFields({ adminFormData, setAdminFormData }) {
+function AdFields({
+  title,
+  date,
+  email,
+  category,
+  onTitleChange,
+  onDateChange,
+  onEmailChange,
+  onCategoryChange,
+}) {
+  console.log('test')
   return (
     <div className="w-full lg:w-1/2 flex flex-col justify-between">
       <label htmlFor="title" className="mb-2 font-bold">
@@ -9,8 +19,8 @@ function AdFields({ adminFormData, setAdminFormData }) {
       <input
         id="title"
         name="title"
-        value={adminFormData.title}
-        onChange={(e) => handleInput(e, setAdminFormData)}
+        value={title}
+        onChange={onTitleChange}
         type="text"
         placeholder="Task Title"
         className="py-2 bg-white/10 focus:bg-gray-100/30 px-3 rounded outline-none cursor-pointer"
@@ -21,8 +31,8 @@ function AdFields({ adminFormData, setAdminFormData }) {
       <input
         id="date"
         name="date"
-        value={adminFormData.date}
-        onChange={(e) => handleInput(e, setAdminFormData)}
+        value={date}
+        onChange={onDateChange}
         type="date"
         className="py-2 bg-white/10 focus:bg-gray-100/30 px-3 rounded outline-none cursor-pointer"
       />
@@ -32,8 +42,8 @@ function AdFields({ adminFormData, setAdminFormData }) {
       <input
         id="email"
         name="email"
-        value={adminFormData.email}
-        onChange={(e) => handleInput(e, setAdminFormData)}
+        value={email}
+        onChange={onEmailChange}
         type="email"
         placeholder="Enter Employee Email"
         className="py-2 bg-white/10 focus:bg-gray-100/30 outline-none rounded px-3 cursor-pointer"
@@ -46,8 +56,8 @@ function AdFields({ adminFormData, setAdminFormData }) {
           id="category"
           className="w-1/2 bg-gray-200/50 py-2 text-gray-950 font-bold rounded-md px-3 outline-none cursor-pointer"
           name="category"
-          value={adminFormData.category}
-          onChange={(e) => handleInput(e, setAdminFormData)}
+          value={category}
+          onChange={onCategoryChange}
         >
           <option>Select</option>
           <option>Development</option>
@@ -60,4 +70,4 @@ function AdFields({ adminFormData, setAdminFormData }) {
   )
 }
 
-export default AdFields
+export default React.memo(AdFields)
