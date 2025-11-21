@@ -30,6 +30,7 @@ export default function handleAdminForm(e, adminFormData, setAdminFormData) {
           task_given_by: 'abhirup605roy@gmail.com',
         })
       }
+      console.log(response)
       throw new Error('Code Fat gaya')
     })
     .catch((error) => alert(error))
@@ -42,7 +43,7 @@ export const handleInput = (e, setAdminFormData) => {
 
 const addTask = async (adminFormData) => {
   const { data } = await axios.post(
-    'https://ems-backend-iota-wine.vercel.app/api/admin/add-task/',
+    'https://ems-backend-iota-wine.vercel.app/api/admin/add-task',
     adminFormData
   )
   return data
