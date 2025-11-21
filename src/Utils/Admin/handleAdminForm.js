@@ -42,7 +42,7 @@ export const handleInput = (e, setAdminFormData) => {
 
 const addTask = async (adminFormData) => {
   const { data } = await axios.post(
-    'http://localhost:3000/api/admin/add-task/',
+    'https://ems-backend-iota-wine.vercel.app/api/admin/add-task/',
     adminFormData
   )
   return data
