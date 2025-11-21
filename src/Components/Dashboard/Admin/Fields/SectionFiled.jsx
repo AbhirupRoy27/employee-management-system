@@ -9,7 +9,7 @@ function SectionFiled({ value, onChange }) {
       <select
         id="category"
         className="w-1/2 bg-gray-200/50 py-2 text-gray-950 font-bold rounded-md px-3 outline-none cursor-pointer"
-        name="category"
+        name="task_category"
         value={value}
         onChange={onChange}
       >

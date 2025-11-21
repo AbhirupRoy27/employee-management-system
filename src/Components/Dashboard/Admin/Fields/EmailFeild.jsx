@@ -8,7 +8,7 @@ function EmailFeild({ value, onChange }) {
       </label>
       <input
         id="email"
-        name="email"
+        name="task_for"
         value={value}
         onChange={onChange}
         type="email"

@@ -8,7 +8,7 @@ function TitleField({ value, onChange }) {
       </label>
       <input
         id="title"
-        name="title"
+        name="task_title"
         value={value}
         onChange={onChange}
         type="text"

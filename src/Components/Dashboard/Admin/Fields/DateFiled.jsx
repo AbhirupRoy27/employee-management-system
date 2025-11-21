@@ -8,7 +8,7 @@ function DateFiled({ value, onChange }) {
       </label>
       <input
         id="date"
-        name="date"
+        name="deadline"
         value={value}
         onChange={onChange}
         type="date"

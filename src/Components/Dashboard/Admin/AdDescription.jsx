@@ -8,7 +8,7 @@ function AdDescription({ description, onDescriptionChange }) {
       </label>
       <textarea
         id="description"
-        name="description"
+        name="task_description"
         value={description}
         rows={6}
         placeholder="Enter Description of task"
