@@ -1,71 +1,16 @@
 import React from 'react'
+import TitleField from './Fields/TitleField'
+import DateFiled from './Fields/DateFiled'
+import EmailFeild from './Fields/EmailFeild'
+import SectionFiled from './Fields/SectionFiled'
 
-function AdFields({
-  title,
-  date,
-  email,
-  category,
-  onTitleChange,
-  onDateChange,
-  onEmailChange,
-  onCategoryChange,
-}) {
-  console.log('test')
+function AdFields({ title, date, email, category, onChange }) {
   return (
     <div className="w-full lg:w-1/2 flex flex-col justify-between">
-      <label htmlFor="title" className="mb-2 font-bold">
-        Task Title
-      </label>
-      <input
-        id="title"
-        name="title"
-        value={title}
-        onChange={onTitleChange}
-        type="text"
-        placeholder="Task Title"
-        className="py-2 bg-white/10 focus:bg-gray-100/30 px-3 rounded outline-none cursor-pointer"
-      />
-      <label htmlFor="date" className="my-2 font-bold">
-        Date
-      </label>
-      <input
-        id="date"
-        name="date"
-        value={date}
-        onChange={onDateChange}
-        type="date"
-        className="py-2 bg-white/10 focus:bg-gray-100/30 px-3 rounded outline-none cursor-pointer"
-      />
-      <label htmlFor="email" className="my-2 font-bold">
-        Employee Email
-      </label>
-      <input
-        id="email"
-        name="email"
-        value={email}
-        onChange={onEmailChange}
-        type="email"
-        placeholder="Enter Employee Email"
-        className="py-2 bg-white/10 focus:bg-gray-100/30 outline-none rounded px-3 cursor-pointer"
-      />
-      <div className="flex justify-between items-center mt-3 ">
-        <label htmlFor="category" className="ml-1 font-bold">
-          Category
-        </label>
-        <select
-          id="category"
-          className="w-1/2 bg-gray-200/50 py-2 text-gray-950 font-bold rounded-md px-3 outline-none cursor-pointer"
-          name="category"
-          value={category}
-          onChange={onCategoryChange}
-        >
-          <option>Select</option>
-          <option>Development</option>
-          <option>Design</option>
-          <option>Q&A</option>
-          <option>Meating</option>
-        </select>
-      </div>
+      <TitleField value={title} onChange={onChange} />
+      <DateFiled value={date} onChange={onChange} />
+      <EmailFeild value={email} onChange={onChange} />
+      <SectionFiled value={category} onChange={onChange} />
     </div>
   )
 }
