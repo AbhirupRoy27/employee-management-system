@@ -1,6 +1,5 @@
-export default function handleEmpListClick(navigate, task, setTaskDetails) {
-  setTaskDetails(task)
+export default function handleEmpListClick(navigate, task) {
+  // console.log(task)
 
-  // console.log(taskDetails)
-  navigate(`task-details?task-id=${task.task_id}`)
+  navigate(`task-details?task-id=${task._id || 0}`)
 }

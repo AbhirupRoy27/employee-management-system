@@ -36,7 +36,7 @@ const taskInfo = [
 ]
 
 function TaskInfo() {
-  const { tasks, setFilterTask } = useTask()
+  const { tasks } = useTask()
   let activeCount = tasks.filter((t) => t.task_status === 'accepted')
   let PendingCount = tasks.filter((t) => t.task_status === 'pending')
   let CompletedCount = tasks.filter((t) => t.task_status === 'completed')
@@ -51,17 +51,17 @@ function TaskInfo() {
         <div
           className="cursor-pointer active:cursor-progress sm:min-w-[220px] w-1/2 sm:w-1/4 shrink-0 hover:scale-102 transform transition-transform duration-250 ease-in-out"
           key={idx}
-          onClick={() =>
-            setFilterTask(
-              p.text === 'Active task'
-                ? activeCount
-                : p.text === 'Pending task'
-                ? PendingCount
-                : p.text === 'Completed task'
-                ? CompletedCount
-                : p.text === 'Failed task' && FailedCount
-            )
-          }
+          // onClick={() =>
+          //   setTask(
+          //     p.text === 'Active task'
+          //       ? activeCount
+          //       : p.text === 'Pending task'
+          //       ? PendingCount
+          //       : p.text === 'Completed task'
+          //       ? CompletedCount
+          //       : p.text === 'Failed task' && FailedCount
+          //   )
+          // }
         >
           <div
             className={`${p.bg_options} sm:hover:shadow-md ${p.shadow} m-1 sm:my-0 min-h-24 rounded-2xl ${p.text_color} border-t-4 border-t-gray-300/50 hover:border-t-gray-100`}

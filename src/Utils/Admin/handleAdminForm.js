@@ -30,10 +30,18 @@ export default function handleAdminForm(e, adminFormData, setAdminFormData) {
           task_given_by: 'abhirup605roy@gmail.com',
         })
       }
+      if (response.message == 'Two task with same deadline not allowed.') {
+        throw new Error(response.message)
+      }
       console.log(response)
       throw new Error('Code Fat gaya')
     })
-    .catch((error) => alert(error))
+    .catch((error) => {
+      if (error.response.status === 404) {
+        return alert(error.response.data.error)
+      }
+      return alert(error.response.status)
+    })
 }
 
 export const handleInput = (e, setAdminFormData) => {
