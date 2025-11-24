@@ -24,7 +24,7 @@ function TaskListLeft({ navigate, task }) {
         <strong>Given By:—</strong>
         {` `}
         <span className="text-gray-700">
-          <i className="text-black">{task.assigned_by}</i>
+          <i className="text-black/70 text-sm ">{task.task_given_by}</i>
         </span>
       </div>
     </div>

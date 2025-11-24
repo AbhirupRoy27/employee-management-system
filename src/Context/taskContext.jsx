@@ -12,7 +12,7 @@ export default function TaskProvider({ children }) {
     const getTasks = async () => {
       try {
         const response = await axios.post(
-          'http://localhost:3000/api/employee/get-tasks',
+          'https://ems-backend-iota-wine.vercel.app/api/employee/get-tasks',
           {
             email: 'arjub33141wt@gmail.com',
           }
