@@ -1,8 +1,12 @@
 import { User } from 'lucide-react'
 import { useTask } from '../../../../../Context/taskContext'
-import Buttons from '../../TaskListComponents/Buttons'
+// import Buttons from '../../TaskListComponents/Buttons'
 import { useSearchParams } from 'react-router-dom'
 import { Loader } from '../TaskView'
+import Accept from '../../TaskListComponents/Buttons/Accept'
+import MarkDone from '../../TaskListComponents/Buttons/MarkDone'
+import Completed from '../../TaskListComponents/Buttons/Completed'
+import Failed from '../../TaskListComponents/Buttons/Failed'
 
 function TaskDetails() {
   const [searchParams] = useSearchParams()
@@ -42,7 +46,17 @@ function TaskDetails() {
                   {details[0].task_given_by}
                 </p>
               </div>
-              <Buttons status={details[0]} />
+              {details[0]?.task_status === '' ? (
+                <h1>Loading</h1>
+              ) : details[0]?.task_status === 'pending' ? (
+                <Accept id={details[0]._id} />
+              ) : details[0]?.task_status === 'accepted' ? (
+                <MarkDone id={details[0]._id} />
+              ) : details[0]?.task_status === 'completed' ? (
+                <Completed />
+              ) : (
+                <Failed />
+              )}
             </div>
           </div>
           <div className="w-full flex justify-center px-5 lg:px-10 py-5 flex-col">

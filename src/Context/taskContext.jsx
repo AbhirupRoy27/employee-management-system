@@ -14,14 +14,14 @@ export default function TaskProvider({ children }) {
         const response = await axios.post(
           'https://ems-backend-iota-wine.vercel.app/api/employee/get-tasks',
           {
-            email: 'arjub33141wt@gmail.com',
+            task_for: 'arjub33141wt@gmail.com',
           }
         )
-        setTask((prev) => [...prev, ...response.data.tasks])
+        setTask(response.data.tasks ?? response.data)
       } catch (err) {
         if (err.response) {
           if (err.response.status === 404) {
-            console.log('Not found:', err.response.data.message)
+            console.log('Not found:', err.response.data.message, err)
             return
           }
           console.log('API error:', err.response.data)

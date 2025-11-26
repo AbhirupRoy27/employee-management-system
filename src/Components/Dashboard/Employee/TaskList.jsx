@@ -1,12 +1,15 @@
 import { useNavigate } from 'react-router-dom'
 import { useTask } from '../../../Context/taskContext'
 import TaskListLeft from './TaskListComponents/TaskListLeft'
-import Buttons from './TaskListComponents/Buttons'
+import Accept from './TaskListComponents/Buttons/Accept'
+import MarkDone from './TaskListComponents/Buttons/MarkDone'
+import Completed from './TaskListComponents/Buttons/Completed'
+import Failed from './TaskListComponents/Buttons/Failed'
 
 function TaskList() {
   const navigate = useNavigate()
   const { tasks } = useTask()
-  // console.log(tasks)
+  console.log(tasks)
 
   return (
     <div className="mx-4 sm:mx-15 flex flex-col lg:flex-row rounded-xl">
@@ -19,15 +22,31 @@ function TaskList() {
             View All tasks
           </button> 
            )} */}
-        {tasks.map((task, idx) => (
-          <div
-            key={idx}
-            className="backdrop-blur flex flex-col lg:flex-row py-2 px-4 lg:justify-between items-start lg:items-center bg-gray-50/80 hover:bg-gray-50/90 hover:scale-101 rounded-lg gap-2 lg:gap-0 transform transition-all duration-200 ease-in-out"
-          >
-            <TaskListLeft navigate={navigate} task={task} />
-            <Buttons status={task} />
+        {tasks.length < 1 ? (
+          <div className="flex justify-center items-center h-full">
+            <h1 className="text-4xl">Loading....</h1>
           </div>
-        ))}
+        ) : (
+          tasks.map((task) => (
+            <div
+              key={task._id}
+              className="backdrop-blur flex flex-col lg:flex-row py-2 px-4 lg:justify-between items-start lg:items-center bg-gray-50/80 hover:bg-gray-50/90 hover:scale-101 rounded-lg gap-2 lg:gap-0 transform transition-all duration-200 ease-in-out"
+            >
+              <TaskListLeft navigate={navigate} task={task} />
+              {task?.task_status === '' ? (
+                <h1>Loading</h1>
+              ) : task?.task_status === 'pending' ? (
+                <Accept id={task._id} />
+              ) : task?.task_status === 'accepted' ? (
+                <MarkDone id={task._id} />
+              ) : task?.task_status === 'completed' ? (
+                <Completed />
+              ) : (
+                <Failed />
+              )}
+            </div>
+          ))
+        )}
       </div>
     </div>
   )
