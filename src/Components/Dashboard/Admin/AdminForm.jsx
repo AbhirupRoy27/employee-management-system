@@ -15,6 +15,7 @@ function AdminForm() {
     task_status: 'pending',
     task_given_by: 'abhirup605roy@gmail.com',
   })
+  const [isUpdating, setIsUpdating] = useState(false)
 
   const onFieldChange = useCallback(
     (e) => handleInput(e, setAdminFormData),
@@ -22,7 +23,7 @@ function AdminForm() {
   )
 
   const onSubmit = useCallback(
-    (e) => handleAdminForm(e, adminFormData, setAdminFormData),
+    (e) => handleAdminForm(e, adminFormData, setAdminFormData, setIsUpdating),
     [adminFormData]
   )
   // console.log(adminFormData)
@@ -40,6 +41,7 @@ function AdminForm() {
         <AdDescription
           description={adminFormData.task_description}
           onDescriptionChange={onFieldChange}
+          isUpdating={isUpdating}
         />
       </form>
     </div>

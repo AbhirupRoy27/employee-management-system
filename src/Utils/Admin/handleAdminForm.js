@@ -1,6 +1,11 @@
 import axios from 'axios'
 
-export default function handleAdminForm(e, adminFormData, setAdminFormData) {
+export default function handleAdminForm(
+  e,
+  adminFormData,
+  setAdminFormData,
+  setIsUpdating
+) {
   e.preventDefault()
   if (adminFormData.task_category === 'Select') {
     return alert('Select a Category')
@@ -15,6 +20,7 @@ export default function handleAdminForm(e, adminFormData, setAdminFormData) {
   }
   // const date = new Date(adminFormData.date)
   // console.log(date)
+  setIsUpdating(true)
   addTask(adminFormData)
     .then((response) => {
       // return console.log(response.status)
@@ -31,17 +37,30 @@ export default function handleAdminForm(e, adminFormData, setAdminFormData) {
         })
       }
       if (response.message == 'Two task with same deadline not allowed.') {
-        throw new Error(response.message)
+        const dateDuplicate = new Error(response.message)
+        dateDuplicate.code = 409
+        throw dateDuplicate
+      } else if (response.message == 'limit of task on this employee reaced') {
+        const limitError = new Error('Employe task limit is full.')
+        limitError.code = 404
+        throw limitError
+      } else {
+        console.log(response)
+        const finalError = new Error('Code Fat gaya')
+        finalError.code = 500
+        throw finalError
       }
-      console.log(response)
-      throw new Error('Code Fat gaya')
     })
     .catch((error) => {
-      if (error.response.status === 404) {
-        return alert(error.response.data.error)
+      if (error.code === 404) {
+        return alert(error.message)
+      } else if (error.code === 409) {
+        return alert(error.message)
       }
-      return alert(error.response.status)
+
+      return alert(error.code + ' ' + error.message)
     })
+    .finally(setIsUpdating(false))
 }
 
 export const handleInput = (e, setAdminFormData) => {
@@ -51,7 +70,8 @@ export const handleInput = (e, setAdminFormData) => {
 
 const addTask = async (adminFormData) => {
   const { data } = await axios.post(
-    'https://ems-backend-iota-wine.vercel.app/api/admin/add-task',
+    // 'https://ems-backend-iota-wine.vercel.app/api/admin/add-task',
+    'http://localhost:3000/api/admin/add-task',
     adminFormData
   )
   return data
