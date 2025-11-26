@@ -67,7 +67,7 @@ function TaskInfo() {
             className={`${p.bg_options} sm:hover:shadow-md ${p.shadow} m-1 sm:my-0 min-h-24 rounded-2xl ${p.text_color} border-t-4 border-t-gray-300/50 hover:border-t-gray-100`}
           >
             <div className="min-w-full min-h-full backdrop-blur-[3px] rounded-xl py-2 px-2 sm:px-4 flex flex-col items-end justify-end gap-3">
-              <TasKCount
+              <TaskCount
                 bg_color={p.bg_color}
                 text={p.text}
                 activeCount={activeCount}
@@ -86,7 +86,7 @@ function TaskInfo() {
   )
 }
 
-const TasKCount = ({
+const TaskCount = ({
   bg_color,
   text,
   activeCount,
