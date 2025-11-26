@@ -31,7 +31,7 @@ function MarkDone({ id }) {
         }}
         disabled={isUpdating}
       >
-        {isUpdating ? '' : 'Mark completed'}
+        {isUpdating ? 'Updating' : 'Mark completed'}
       </button>
     </div>
   )

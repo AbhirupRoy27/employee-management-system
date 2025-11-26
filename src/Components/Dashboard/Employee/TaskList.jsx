@@ -9,7 +9,6 @@ import Failed from './TaskListComponents/Buttons/Failed'
 function TaskList() {
   const navigate = useNavigate()
   const { tasks } = useTask()
-  console.log(tasks)
 
   return (
     <div className="mx-4 sm:mx-15 flex flex-col lg:flex-row rounded-xl">
