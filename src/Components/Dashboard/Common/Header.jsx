@@ -1,13 +1,13 @@
 // import { useNavigate } from 'react-router-dom'
-import { useTask } from '../../../Context/taskContext'
 import { useUserContext } from '../../../Context/Usercontext'
 import { CircleUser } from 'lucide-react'
+import SuccessRate from './successRate'
+import { useTask } from '../../../Context/taskContext'
 
 function Header(props) {
   const { isAdmin } = useUserContext()
   const { tasks } = useTask()
-  const failTasks = tasks.filter((t) => t.task_status === 'failed')
-  const failRate = Math.floor((failTasks.length / tasks.length) * 100)
+  const taskCount = tasks
 
   return (
     <div className="flex py-5 px-4 sm:py-10 sm:px-15 justify-between items-center min-w-[354px]">
@@ -19,13 +19,7 @@ function Header(props) {
             <h1 className="text-3xl tracking-wider font-semibold">Abhirup </h1>
           </div>
         </div>
-        {isAdmin && (
-          <div className="cursor-alias backdrop-blur bg-green-400/10 py-2 px-4 rounded-xl border border-gray-50/30">
-            <p title="Success rate" className="flex items-center gap-4">
-              S/R: <b className="text-3xl">{100 - failRate || 0}%</b>
-            </p>
-          </div>
-        )}
+        <SuccessRate count={taskCount} />
       </div>
       <button
         className="bg-red-700 hover:bg-red-800 px-4 py-1.5 sm:px-8 sm:py-3 h-max rounded font-bold tracking-wider active:scale-102 text-white"
