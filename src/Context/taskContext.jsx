@@ -1,5 +1,5 @@
 /* eslint-disable react-refresh/only-export-components */
-import { createContext, useContext, useEffect, useState } from 'react'
+import { createContext, useContext, useEffect, useMemo, useState } from 'react'
 // import task from '../DB/employee.json'
 import axios from 'axios'
 
@@ -7,6 +7,7 @@ const TaskContext = createContext()
 
 export default function TaskProvider({ children }) {
   const [tasks, setTask] = useState([])
+  const value = useMemo(() => ({ tasks, setTask }), [tasks])
 
   useEffect(() => {
     const getTasks = async () => {
@@ -33,16 +34,7 @@ export default function TaskProvider({ children }) {
     getTasks()
   }, [])
 
-  return (
-    <TaskContext.Provider
-      value={{
-        tasks,
-        setTask,
-      }}
-    >
-      {children}
-    </TaskContext.Provider>
-  )
+  return <TaskContext.Provider value={value}>{children}</TaskContext.Provider>
 }
 
 export const useTask = () => {
