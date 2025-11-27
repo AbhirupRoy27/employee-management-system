@@ -1,16 +1,23 @@
+import { useEffect, useState } from 'react'
 import { useFilterTask } from '../../../Context/filterTaskContext'
-import { useTask } from '../../../Context/taskContext'
 import taskInfo from '../../../DB/taskInfo.json'
+import getActivetask from '../../../Utils/getTasks/getActiveTasks'
+import TaskInfoLoader from './TaskView/Components/TaskInfoLoader'
+import getTaskCounts from '../../../Utils/getTasks/getTaskCounts'
 
 function TaskInfo() {
-  const { tasks } = useTask()
   const { setFilteredTask } = useFilterTask()
-  // console.log(setFilteredTask)
+  const [taskCounts, setTaskCounts] = useState([])
+  // console.log(taskCounts)
 
-  let activeCount = tasks.filter((t) => t.task_status === 'accepted')
-  let PendingCount = tasks.filter((t) => t.task_status === 'pending')
-  let CompletedCount = tasks.filter((t) => t.task_status === 'completed')
-  let FailedCount = tasks.filter((t) => t.task_status === 'failed')
+  useEffect(() => {
+    if (setFilteredTask.length < 1) return
+    getTaskCounts(setTaskCounts)
+  }, [setFilteredTask])
+
+  if (taskCounts.length < 1) {
+    return <TaskInfoLoader />
+  }
 
   return (
     <div
@@ -22,15 +29,15 @@ function TaskInfo() {
           className="cursor-pointer active:cursor-progress sm:min-w-[220px] w-1/2 sm:w-1/4 shrink-0 hover:scale-102 transform transition-transform duration-250 ease-in-out"
           key={idx}
           onClick={() =>
-            setFilteredTask(
-              p.text === 'Active task'
-                ? activeCount
-                : p.text === 'Pending task'
-                ? PendingCount
-                : p.text === 'Completed task'
-                ? CompletedCount
-                : p.text === 'Failed task' && FailedCount
-            )
+            // setFilteredTask(
+            p.text === 'Active task'
+              ? getActivetask(setFilteredTask, 'accepted')
+              : p.text === 'Pending task'
+              ? getActivetask(setFilteredTask, 'pending')
+              : p.text === 'Completed task'
+              ? getActivetask(setFilteredTask, 'completed')
+              : p.text === 'Failed task' &&
+                getActivetask(setFilteredTask, 'failed')
           }
         >
           <div
@@ -40,10 +47,10 @@ function TaskInfo() {
               <TaskCount
                 bg_color={p.bg_color}
                 text={p.text}
-                activeCount={activeCount}
-                PendingCount={PendingCount}
-                CompletedCount={CompletedCount}
-                FailedCount={FailedCount}
+                activeCount={taskCounts[0].count}
+                PendingCount={taskCounts[1].count}
+                CompletedCount={taskCounts[2].count}
+                FailedCount={taskCounts[3]?.count || 0}
               />
               <h1 className="text-white font-semibold text-[16px] md:text-[18px] tracking-widest leading-none h-8 uppercase">
                 {p.text}
@@ -70,12 +77,12 @@ const TaskCount = ({
     >
       <strong className="font-(--font-poppins) text-[45px] md:text-[68px] leading-none mb-1">
         {text === 'Active task'
-          ? `${activeCount.length}`
+          ? `${activeCount}`
           : text === 'Pending task'
-          ? `${PendingCount.length}`
+          ? `${PendingCount}`
           : text === 'Completed task'
-          ? `${CompletedCount.length}`
-          : text === 'Failed task' && `${FailedCount.length}`}
+          ? `${CompletedCount}`
+          : `${FailedCount}`}
       </strong>
     </div>
   )
