@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useFilterTask } from '../../../Context/filterTaskContext'
 import taskInfo from '../../../DB/taskInfo.json'
-import getActivetask from '../../../Utils/getTasks/getActiveTasks'
+import getTasksByFilter from '../../../Utils/getTasks/getTasksByFilter'
 import TaskInfoLoader from './TaskView/Components/TaskInfoLoader'
 import getTaskCounts from '../../../Utils/getTasks/getTaskCounts'
 
@@ -31,13 +31,13 @@ function TaskInfo() {
           onClick={() =>
             // setFilteredTask(
             p.text === 'Active task'
-              ? getActivetask(setFilteredTask, 'accepted')
+              ? getTasksByFilter(setFilteredTask, 'accepted')
               : p.text === 'Pending task'
-              ? getActivetask(setFilteredTask, 'pending')
+              ? getTasksByFilter(setFilteredTask, 'pending')
               : p.text === 'Completed task'
-              ? getActivetask(setFilteredTask, 'completed')
+              ? getTasksByFilter(setFilteredTask, 'completed')
               : p.text === 'Failed task' &&
-                getActivetask(setFilteredTask, 'failed')
+                getTasksByFilter(setFilteredTask, 'failed')
           }
         >
           <div
