@@ -1,42 +1,12 @@
+import { useFilterTask } from '../../../Context/filterTaskContext'
 import { useTask } from '../../../Context/taskContext'
-
-const taskInfo = [
-  {
-    text: 'Active task',
-    bg_options:
-      'bg-[url(https://images.unsplash.com/photo-1504384308090-c894fdcc538d?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTl8fHdvcmt8ZW58MHx8MHx8fDA%3D)] bg-cover bg-center',
-    text_color: 'text-black',
-    shadow: 'shadow-white/15',
-    bg_color: 'bg-gray-50/70',
-  },
-  {
-    text: 'Pending task',
-    bg_options:
-      'bg-[url(https://images.unsplash.com/photo-1543269664-7eef42226a21?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OTd8fHdvcmt8ZW58MHx8MHx8fDA%3D)] bg-cover bg-center',
-    text_color: 'text-[#1A1A1A]',
-    shadow: 'shadow-white/20',
-    bg_color: 'bg-gray-50/70',
-  },
-  {
-    text: 'Completed task',
-    bg_options:
-      'bg-[url(https://images.unsplash.com/photo-1611095973763-414019e72400?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8NTl8fHdvcmt8ZW58MHx8MHx8fDA%3D)] bg-cover bg-center',
-    text_color: 'text-black',
-    shadow: 'shadow-white/15',
-    bg_color: 'bg-gray-50/70',
-  },
-  {
-    text: 'Failed task',
-    bg_options:
-      'bg-[url(https://images.unsplash.com/photo-1623018035782-b269248df916?w=900&auto=format&fit=crop&q=60&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTh8fGZhaWx8ZW58MHx8MHx8fDA%3D)] bg-cover bg-center',
-    text_color: 'text-black',
-    shadow: 'shadow-white/20',
-    bg_color: 'bg-gray-50/70',
-  },
-]
+import taskInfo from '../../../DB/taskInfo.json'
 
 function TaskInfo() {
   const { tasks } = useTask()
+  const { setFilteredTask } = useFilterTask()
+  // console.log(setFilteredTask)
+
   let activeCount = tasks.filter((t) => t.task_status === 'accepted')
   let PendingCount = tasks.filter((t) => t.task_status === 'pending')
   let CompletedCount = tasks.filter((t) => t.task_status === 'completed')
@@ -51,17 +21,17 @@ function TaskInfo() {
         <div
           className="cursor-pointer active:cursor-progress sm:min-w-[220px] w-1/2 sm:w-1/4 shrink-0 hover:scale-102 transform transition-transform duration-250 ease-in-out"
           key={idx}
-          // onClick={() =>
-          //   setTask(
-          //     p.text === 'Active task'
-          //       ? activeCount
-          //       : p.text === 'Pending task'
-          //       ? PendingCount
-          //       : p.text === 'Completed task'
-          //       ? CompletedCount
-          //       : p.text === 'Failed task' && FailedCount
-          //   )
-          // }
+          onClick={() =>
+            setFilteredTask(
+              p.text === 'Active task'
+                ? activeCount
+                : p.text === 'Pending task'
+                ? PendingCount
+                : p.text === 'Completed task'
+                ? CompletedCount
+                : p.text === 'Failed task' && FailedCount
+            )
+          }
         >
           <div
             className={`${p.bg_options} sm:hover:shadow-md ${p.shadow} m-1 sm:my-0 min-h-24 rounded-2xl ${p.text_color} border-t-4 border-t-gray-300/50 hover:border-t-gray-100`}
