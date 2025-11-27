@@ -1,28 +1,33 @@
 import { User } from 'lucide-react'
-import { useTask } from '../../../../../Context/taskContext'
-// import Buttons from '../../TaskListComponents/Buttons'
 import { useSearchParams } from 'react-router-dom'
 import { Loader } from '../TaskView'
 import Accept from '../../TaskListComponents/Buttons/Accept'
 import MarkDone from '../../TaskListComponents/Buttons/MarkDone'
 import Completed from '../../TaskListComponents/Buttons/Completed'
 import Failed from '../../TaskListComponents/Buttons/Failed'
+import { useEffect, useState } from 'react'
+import getTastById from '../../../../../Utils/getTasks/getTastById'
 
 function TaskDetails() {
   const [searchParams] = useSearchParams()
-  // const taskid = Number(searchParams.get('task-id'))
   const taskid = searchParams.get('task-id')
+  const [task, setTask] = useState([])
 
-  const { tasks } = useTask()
-  const details = tasks.length > 0 && tasks.filter((t) => t._id === taskid)
+  const details = task.length > 0 && task.filter((t) => t._id === taskid)
 
-  if (tasks.length <= 0) {
+  useEffect(() => {
+    if (task.length < 1) {
+      getTastById(taskid, setTask)
+    }
+  }, [task, setTask, taskid])
+
+  if (details.length <= 0) {
     return <Loader />
   }
 
   return (
     <>
-      {tasks.length > 0 ? (
+      {task.length > 0 ? (
         <div className="py-6 px-2 sm:px-4 text-gray-900 flex flex-col w-full ">
           <div className="flex lg:justify-between lg:items-center gap-2 flex-col lg:flex-row mb-4">
             <p className="font-semibold text-gray-900 text-pretty text-3xl">
