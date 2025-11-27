@@ -1,6 +1,8 @@
 import handleEmpListClick from '../../../../Utils/Emp-Dashboard/handleEmpListClick'
+import { useNavigate } from 'react-router-dom'
 
-function TaskListLeft({ navigate, task }) {
+function TaskListLeft({ task }) {
+  const navigate = useNavigate()
   return (
     <div className="cursor-pointer w-full">
       <div className="flex flex-col sm:flex-row sm:gap-2 sm:items-center">
@@ -18,7 +20,7 @@ function TaskListLeft({ navigate, task }) {
         </b>
       </div>
       <span className="text-gray-700">
-        <b className="text-black">Date:</b> {task.task_deadline}
+        <b className="text-black">Date:</b> {task.deadline.split('T')[0]}
       </span>
       <div className="mt-1">
         <strong>Given By:—</strong>

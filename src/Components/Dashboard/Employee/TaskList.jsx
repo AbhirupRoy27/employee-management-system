@@ -1,4 +1,3 @@
-import { useNavigate } from 'react-router-dom'
 import TaskListLeft from './TaskListComponents/TaskListLeft'
 import Accept from './TaskListComponents/Buttons/Accept'
 import MarkDone from './TaskListComponents/Buttons/MarkDone'
@@ -7,7 +6,6 @@ import Failed from './TaskListComponents/Buttons/Failed'
 import { useFilterTask } from '../../../Context/filterTaskContext'
 
 function TaskList() {
-  const navigate = useNavigate()
   const { filteredTask } = useFilterTask()
 
   return (
@@ -23,7 +21,7 @@ function TaskList() {
               key={task._id}
               className="backdrop-blur flex flex-col lg:flex-row py-2 px-4 lg:justify-between items-start lg:items-center bg-gray-50/80 hover:bg-gray-50/90 hover:scale-101 rounded-lg gap-2 lg:gap-0 transform transition-all duration-200 ease-in-out"
             >
-              <TaskListLeft navigate={navigate} task={task} />
+              <TaskListLeft task={task} />
               {task?.task_status === '' ? (
                 <h1>Loading</h1>
               ) : task?.task_status === 'pending' ? (
