@@ -5,7 +5,6 @@ import { useTask } from '../../../../../Context/taskContext'
 function Accept({ id }) {
   const [updatedData, setUpdatedData] = useState({})
   const [isUpdating, setIsUpdating] = useState(false)
-  // const [isUpdated, setIsUpdated] = useState(false)
   const { setTask } = useTask()
 
   const getStatus = async (id, newStatus) => {
@@ -16,10 +15,6 @@ function Accept({ id }) {
     )
     setUpdatedData(response.data)
     setIsUpdating(false)
-    // setIsUpdated(true)
-    // setTimeout(() => {
-    //   setIsUpdated(false)
-    // }, 2000)
   }
 
   useEffect(() => {
@@ -30,15 +25,6 @@ function Accept({ id }) {
 
   return (
     <div className="flex h-full justify-center items-center">
-      {/* {isUpdated && (
-        <div
-          role="status"
-          aria-live="polite"
-          className="ml-2 text-sm text-red-700 mr-5"
-        >
-          {updatedData.message}
-        </div>
-      )} */}
       <button
         className={`active:cursor-progress text-sm backdrop-blur cursor-pointer font-poppins uppercase ${
           isUpdating ? 'bg-blue-800/70' : 'bg-blue-800/90'

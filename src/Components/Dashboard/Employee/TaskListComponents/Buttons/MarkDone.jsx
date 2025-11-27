@@ -1,25 +1,31 @@
 import axios from 'axios'
-import React, { useEffect, useState } from 'react'
-import { useTask } from '../../../../../Context/taskContext'
+import React, {
+  // useEffect,
+  useState,
+} from 'react'
+// import { useTask } from '../../../../../Context/taskContext'
 
 function MarkDone({ id }) {
   const [updatedData, setUpdatedData] = useState({})
   const [isUpdating, setIsUpdating] = useState(false)
-  const { setTask } = useTask()
+  // const { setTask } = useTask()
 
   const markComplete = async (id, newStatus) => {
     setIsUpdating(true)
     const response = await axios.patch(
-      'https://ems-backend-iota-wine.vercel.app/api/employee/update-task',
+      // 'https://ems-backend-iota-wine.vercel.app/api/employee/update-task',
+      'http://localhost:3000/api/employee/update-task',
       { _id: id, task_status: newStatus }
     )
     setUpdatedData(response.data)
     setIsUpdating(false)
   }
-  useEffect(() => {
-    if (!updatedData?.status) return
-    setTask((prev) => prev.map((t) => (t._id === id ? updatedData.data : t)))
-  }, [id, setTask, updatedData])
+
+  console.log(updatedData)
+  // useEffect(() => {
+  //   if (!updatedData?.status) return
+  //   setTask((prev) => prev.map((t) => (t._id === id ? updatedData.data : t)))
+  // }, [id, setTask, updatedData])
 
   return (
     <div className="flex h-full justify-center items-center">
