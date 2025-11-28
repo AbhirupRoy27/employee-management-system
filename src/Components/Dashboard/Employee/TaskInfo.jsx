@@ -6,14 +6,14 @@ import TaskInfoLoader from './TaskView/Components/TaskInfoLoader'
 import getTaskCounts from '../../../Utils/getTasks/getTaskCounts'
 
 function TaskInfo() {
-  const { setFilteredTask } = useFilterTask()
+  const { setFilteredTask, filteredTask } = useFilterTask()
   const [taskCounts, setTaskCounts] = useState([])
   // console.log(taskCounts)
 
   useEffect(() => {
     if (setFilteredTask.length < 1) return
     getTaskCounts(setTaskCounts)
-  }, [setFilteredTask])
+  }, [setFilteredTask, filteredTask])
 
   if (taskCounts.length < 1) {
     return <TaskInfoLoader />
