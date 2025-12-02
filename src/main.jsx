@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom'
 import UsercontextProvider from './Context/Usercontext.jsx'
 import TaskProvider from './Context/taskContext.jsx'
 import FilterTaskContext from './Context/filterTaskContext.jsx'
+import TaskCountProvider from './Context/taskCountContext.jsx'
 
 createRoot(document.getElementById('root')).render(
   <>
@@ -12,7 +13,9 @@ createRoot(document.getElementById('root')).render(
       <UsercontextProvider>
         <TaskProvider>
           <FilterTaskContext>
-            <App />
+            <TaskCountProvider>
+              <App />
+            </TaskCountProvider>
           </FilterTaskContext>
         </TaskProvider>
       </UsercontextProvider>
