@@ -1,19 +1,16 @@
-import { useEffect, useState } from 'react'
+// import React, { useEffect, useState } from 'react'
+import React from 'react'
 import { useFilterTask } from '../../../Context/filterTaskContext'
 import taskInfo from '../../../DB/taskInfo.json'
 import getTasksByFilter from '../../../Utils/getTasks/getTasksByFilter'
 import TaskInfoLoader from './TaskView/Components/TaskInfoLoader'
-import getTaskCounts from '../../../Utils/getTasks/getTaskCounts'
+import { useTaskCount } from '../../../Context/taskCountContext'
+// import getTaskCounts from '../../../Utils/getTasks/getTaskCounts'
 
 function TaskInfo() {
-  const { setFilteredTask, filteredTask } = useFilterTask()
-  const [taskCounts, setTaskCounts] = useState([])
+  const { setFilteredTask } = useFilterTask()
+  const { taskCounts } = useTaskCount()
   // console.log(taskCounts)
-
-  useEffect(() => {
-    if (setFilteredTask.length < 1) return
-    getTaskCounts(setTaskCounts)
-  }, [setFilteredTask, filteredTask])
 
   if (taskCounts.length < 1) {
     return <TaskInfoLoader />
@@ -26,7 +23,7 @@ function TaskInfo() {
     >
       {taskInfo.map((p, idx) => (
         <div
-          className="cursor-pointer active:cursor-progress sm:min-w-[220px] w-1/2 sm:w-1/4 shrink-0 hover:scale-102 transform transition-transform duration-250 ease-in-out"
+          className="cursor-pointer active:cursor-progress sm:min-w-[220px] w-1/2 sm:w-1/4 shrink-0 hover:scale-98 transform transition-transform duration-250 ease-in-out"
           key={idx}
           onClick={() =>
             // setFilteredTask(
@@ -88,4 +85,4 @@ const TaskCount = ({
   )
 }
 
-export default TaskInfo
+export default React.memo(TaskInfo)
