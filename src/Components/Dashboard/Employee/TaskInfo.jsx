@@ -5,11 +5,13 @@ import taskInfo from '../../../DB/taskInfo.json'
 import getTasksByFilter from '../../../Utils/getTasks/getTasksByFilter'
 import TaskInfoLoader from './TaskView/Components/TaskInfoLoader'
 import { useTaskCount } from '../../../Context/taskCountContext'
+import { useNavigate } from 'react-router-dom'
 // import getTaskCounts from '../../../Utils/getTasks/getTaskCounts'
 
 function TaskInfo() {
   const { setFilteredTask } = useFilterTask()
   const { taskCounts } = useTaskCount()
+  const navigate = useNavigate()
   // console.log(taskCounts)
 
   if (taskCounts.length < 1) {
@@ -28,13 +30,13 @@ function TaskInfo() {
           onClick={() =>
             // setFilteredTask(
             p.text === 'Active task'
-              ? getTasksByFilter(setFilteredTask, 'accepted')
+              ? getTasksByFilter(setFilteredTask, 'accepted', navigate)
               : p.text === 'Pending task'
-              ? getTasksByFilter(setFilteredTask, 'pending')
+              ? getTasksByFilter(setFilteredTask, 'pending', navigate)
               : p.text === 'Completed task'
-              ? getTasksByFilter(setFilteredTask, 'completed')
+              ? getTasksByFilter(setFilteredTask, 'completed', navigate)
               : p.text === 'Failed task' &&
-                getTasksByFilter(setFilteredTask, 'failed')
+                getTasksByFilter(setFilteredTask, 'failed', navigate)
           }
         >
           <div

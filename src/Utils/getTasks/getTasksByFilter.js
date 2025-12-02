@@ -1,6 +1,10 @@
 import axios from 'axios'
 
-export default async function getTasksByFilter(setFilteredTask, status) {
+export default async function getTasksByFilter(
+  setFilteredTask,
+  status,
+  navigate
+) {
   const response = await axios.post(
     // 'http://localhost:3000/api/employee/filter-task',
     'https://ems-backend-iota-wine.vercel.app/api/employee/filter-task',
@@ -10,5 +14,6 @@ export default async function getTasksByFilter(setFilteredTask, status) {
     }
   )
   response.data.data[0].deadline = response.data.data[0].deadline.split('T')[0]
+  navigate(`/Employee-dashboard?task=${status}`)
   return setFilteredTask(response.data.data)
 }
