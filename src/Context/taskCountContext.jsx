@@ -6,12 +6,12 @@ const TaskCountContext = createContext()
 
 function TaskCountProvider({ children }) {
   const [taskCounts, setTaskCounts] = useState([])
-  const { setFilteredTask, filteredTask } = useFilterTask()
+  const { filteredTask } = useFilterTask()
 
   useEffect(() => {
-    if (setFilteredTask.length < 1) return
+    if (filteredTask.length < 1) return
     getTaskCounts(setTaskCounts)
-  }, [setFilteredTask, filteredTask])
+  }, [filteredTask])
 
   return (
     <TaskCountContext.Provider value={{ taskCounts }}>
