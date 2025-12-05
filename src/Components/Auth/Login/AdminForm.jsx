@@ -40,24 +40,24 @@ function AdminForm({ setIsChecking }) {
       <form onSubmit={(e) => handleSubmit(e)} className="w-full">
         <div className="flex flex-col gap-2">
           <label htmlFor="email" className="ml-4 cursor-pointer">
-            Admin Email
+            Email
           </label>
           <input
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
+            placeholder="Email (required)"
             type="email"
             className="outline-none bg-gray-50 rounded-full w-full  px-6 py-3 text-black placeholder:text-gray-400 transform transition-all duration-300 focus:placeholder:text-black focus:bg-gray-50/90 tracking-wider"
           />
           <label htmlFor="password" className=" ml-4 cursor-pointer">
-            Admin Password
+            Password
           </label>
           <input
             id="password"
             value={pass}
             onChange={(e) => setPass(e.target.value)}
-            placeholder="Password"
+            placeholder="Password (required)"
             type={doRemember ? 'text' : 'password'}
             className="outline-none bg-gray-50 rounded-full w-full  px-6 py-3 text-black placeholder:text-gray-400 transform transition-all duration-300 focus:placeholder:text-black focus:bg-gray-50/90 tracking-wider"
           />
@@ -74,7 +74,7 @@ function AdminForm({ setIsChecking }) {
             </label>
           </span>
           <h3
-            className="text-red-600 active:text-red-800 cursor-pointer text-sm"
+            className="text-red-600 active:text-red-800 cursor-pointer font-semibold"
             onClick={() => alert('Comming soon')}
           >
             Forgot Password
@@ -83,7 +83,7 @@ function AdminForm({ setIsChecking }) {
         <div className="flex justify-center items-center mt-4">
           <button
             type="submit"
-            className="bg-emerald-800 transform transition-all duration-300 hover:bg-emerald-900 hover:shadow-green-600 shadow-sm font-bold px-10 text-xl py-3 rounded-full cursor-pointer tracking-wider active:scale-102"
+            className=" w-2/4 bg-emerald-800 transform transition-all duration-300 hover:bg-emerald-900 font-bold px-10 text-xl py-3 rounded-full cursor-pointer tracking-wider active:scale-102"
           >
             Admin Login
           </button>

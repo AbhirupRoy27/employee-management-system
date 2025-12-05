@@ -11,13 +11,13 @@ function GuestLogin() {
       <div className="flex gap-2">
         <p
           onClick={() => navigate('/Employee-dashboard')}
-          className="w-[105px] text-gray-200 bg-gray-50/10 py-2 px-4 rounded-lg border border-gray-50/10"
+          className=" font-semibold w-[105px] text-gray-200 bg-gray-50/10 py-2 px-4 rounded-lg border border-gray-50/10 hover:bg-gray-50/20 transition-colors duration-300 ease-in-out"
         >
           Employee
         </p>
         <p
           onClick={() => navigate('/admin-dashboard')}
-          className="w-[105px] flex  justify-center text-gray-200 bg-gray-50/10 py-2 px-4 rounded-lg border border-gray-50/10"
+          className="font-semibold w-[105px] flex  justify-center text-gray-200 bg-gray-50/10 py-2 px-4 rounded-lg border border-gray-50/10 hover:bg-gray-50/20 transition-colors duration-300 ease-in-out"
         >
           Admin
         </p>

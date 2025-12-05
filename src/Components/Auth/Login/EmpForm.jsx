@@ -42,7 +42,7 @@ function Form({ setIsChecking }) {
             id="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            placeholder="Email"
+            placeholder="Email (required)"
             type="email"
             className="outline-none bg-gray-50 rounded-full w-full  px-6 py-3 text-black placeholder:text-gray-400  focus:placeholder:text-black focus:bg-gray-50/90 tracking-wider"
           />
@@ -53,7 +53,7 @@ function Form({ setIsChecking }) {
             id="password"
             value={pass}
             onChange={(e) => setPass(e.target.value)}
-            placeholder="Password"
+            placeholder="Password (required)"
             type={doRemember ? 'text' : 'password'}
             className="outline-none bg-gray-50 rounded-full w-full  px-6 py-3 text-black placeholder:text-gray-400 focus:placeholder:text-black focus:bg-gray-50/90 tracking-wider"
           />
@@ -64,13 +64,17 @@ function Form({ setIsChecking }) {
               id="remember"
               type="checkbox"
               onChange={(e) => setDoRemember(e.target.checked)}
+              className="cursor-pointer"
             />
-            <label htmlFor="remember" className="tracking-wider text-sm">
+            <label
+              htmlFor="remember"
+              className="tracking-wider text-sm cursor-pointer"
+            >
               {doRemember ? 'Hide' : 'Show'}
             </label>
           </span>
           <h3
-            className="text-red-600 active:text-red-800 cursor-pointer"
+            className="text-red-600 active:text-red-800 cursor-pointer font-semibold"
             onClick={() => alert('Contact The Admin')}
           >
             Forgot Password
@@ -79,7 +83,7 @@ function Form({ setIsChecking }) {
         <div className="flex justify-center items-center mt-4">
           <button
             type="submit"
-            className="bg-emerald-800 hover:bg-emerald-900 font-bold px-10 text-xl py-3 rounded-full cursor-pointer tracking-wider active:scale-102"
+            className="w-2/4 bg-emerald-800 hover:bg-emerald-900 font-bold px-10 text-xl py-3 rounded-full cursor-pointer tracking-wider active:scale-102"
           >
             Login
           </button>
