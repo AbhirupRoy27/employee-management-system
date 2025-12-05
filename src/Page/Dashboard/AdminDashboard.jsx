@@ -2,6 +2,7 @@ import Header from '../../Components/Dashboard/Common/Header'
 import AdminForm from '../../Components/Dashboard/Admin/AdminForm'
 import { useState } from 'react'
 import Logout from '../Logout/Logout'
+import AddEmpForm from '../../Components/Dashboard/Admin/addEmployee/AddEmpForm'
 
 function AdminDashboard() {
   const [isActive, setIsActive] = useState(false)
@@ -11,6 +12,8 @@ function AdminDashboard() {
       {isActive && <Logout setIsActive={setIsActive} />}
       <Header setIsActive={setIsActive} />
       <AdminForm />
+
+      <AddEmpForm />
     </div>
   )
 }
