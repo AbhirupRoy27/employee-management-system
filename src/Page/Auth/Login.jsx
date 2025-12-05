@@ -6,6 +6,7 @@ import { useUserContext } from '../../Context/Usercontext'
 import { useNavigate } from 'react-router-dom'
 import AdminForm from '../../Components/Auth/Login/AdminForm'
 import { Loader } from 'lucide-react'
+import GuestLogin from '../../Components/Auth/Login/GuestLogin'
 
 function Login() {
   const [isChecking, setIsChecking] = useState(true)
@@ -28,9 +29,13 @@ function Login() {
 
   if (isChecking) {
     return (
-      <div className="h-screen w-screen bg-black text-white flex justify-center items-center">
-        Checking session <Loader />
-      </div>
+      <>
+        <div className="h-screen w-screen bg-black text-white flex gap-2 justify-center items-center text-4xl">
+          Checking Session{' '}
+          <Loader color="oklch(44.6% 0.043 257.281)" size={60} />
+          <br />
+        </div>
+      </>
     )
   }
 
@@ -44,27 +49,17 @@ function Login() {
       <div className="flex flex-col w-full lg:w-3/5 mt-10 lg:mt-0 justify-start lg:justify-center items-center h-full p-2">
         <LoginType setIsAdmin={setIsAdmin} isAdmin={isAdmin} />
 
+        <GuestLogin />
+
         {isAdmin ? (
           <>
-            <div className="mt-5 flex items-center text-gray-200 bg-gray-50/10 py-2 px-4 rounded-xl border border-gray-50/10">
-              <b className="tracking-widest text-xl mr-2">For testing visit:</b>
-              <p onClick={() => navigate('/Employee-dashboard')}>
-                /Employee-dashboard
-              </p>
-            </div>
-            <div className="w-full lg:w-[80%] flex flex-col gap-4 justify-center items-center mt-10">
+            <div className="w-full lg:w-[80%] flex flex-col gap-4 justify-center items-center mt-3">
               <Form setIsChecking={setIsChecking} />
             </div>
           </>
         ) : (
           <>
-            <div className="mt-5 flex items-center text-gray-200 bg-gray-50/10 py-2 px-4 rounded-xl border border-gray-50/10">
-              <b className="tracking-widest text-xl mr-2">For testing visit:</b>
-              <p onClick={() => navigate('/admin-dashboard')}>
-                /admin-dashboard
-              </p>
-            </div>
-            <div className="w-full lg:w-[80%] flex flex-col gap-4 justify-center items-center mt-10">
+            <div className="w-full lg:w-[80%] flex flex-col gap-4 justify-center items-center mt-3">
               <AdminForm setIsChecking={setIsChecking} />
             </div>
           </>
