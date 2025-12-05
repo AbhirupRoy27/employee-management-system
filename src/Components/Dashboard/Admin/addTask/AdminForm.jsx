@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
 import handleAdminForm, {
   handleInput,
-} from '../../../Utils/Admin/handleAdminForm'
+} from '../../../../Utils/Admin/handleAdminForm'
 import AdDescription from './AdDescription'
 import AdFields from './AdFields'
 
