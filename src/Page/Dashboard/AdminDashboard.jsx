@@ -4,6 +4,7 @@ import Logout from '../Logout/Logout'
 import AddEmpForm from '../../Components/Dashboard/Admin/addEmployee/AddEmpForm'
 import AdminForm from '../../Components/Dashboard/Admin/addTask/AdminForm'
 import AdminNav from '../../Components/Dashboard/Admin/navBar/AdminNav'
+import SuccessRate from '../../Components/Dashboard/Common/successRate'
 
 function AdminDashboard() {
   const [isActive, setIsActive] = useState(false)
@@ -16,6 +17,7 @@ function AdminDashboard() {
         <AdminNav setActiveTab={setActiveTab} />
         <div className="w-full">
           <Header setIsActive={setIsActive} />
+          <SuccessRate />
           {activeTab == 'AddEmpTask' ? <AdminForm /> : <AddEmpForm />}
         </div>
       </div>
