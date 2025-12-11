@@ -18,12 +18,16 @@ function AdminNav({ setActiveTab }) {
       </div>
       <section
         className={`${
-          isOpen ? 'flex absolute w-full bg-black/90 h-screen' : 'hidden'
+          isOpen
+            ? 'flex absolute w-full bg-black/70 h-screen backdrop-blur'
+            : 'hidden'
         } sm:flex flex-col`}
       >
         <div className="flex flex-col sm:mt-10">
           <button
-            className="py-4 bg-black hover:bg-white/35 transition-all duration-300 ease border-b border-white/20 uppercase tracking-wider"
+            className={`py-4 ${
+              isOpen ? 'bg-black' : 'bg-white/10'
+            } hover:bg-white/35 transition-all duration-300 ease border-b border-white/20 uppercase tracking-wider font-bold`}
             onClick={() => {
               setActiveTab('AddEmpTask')
               setIsOpen(false)
@@ -32,7 +36,9 @@ function AdminNav({ setActiveTab }) {
             Add Employee
           </button>
           <button
-            className="py-4 bg-black hover:bg-white/35 transition-all duration-300 ease border-b border-white/20 uppercase tracking-wider"
+            className={`py-4 ${
+              isOpen ? 'bg-black' : 'bg-white/10'
+            } hover:bg-white/35 transition-all duration-300 ease border-b border-white/20 uppercase tracking-wider font-bold`}
             onClick={() => {
               setActiveTab('AddEmpForm')
               setIsOpen(false)

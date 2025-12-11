@@ -1,13 +1,9 @@
 // import { useNavigate } from 'react-router-dom'
 import { useUserContext } from '../../../Context/Usercontext'
 import { CircleUser } from 'lucide-react'
-import SuccessRate from './successRate'
-import { useTask } from '../../../Context/taskContext'
 
 function Header(props) {
   const { isAdmin } = useUserContext()
-  const { tasks } = useTask()
-  const taskCount = tasks
 
   return (
     <div className="flex py-5 px-4 sm:py-10 sm:px-15 justify-between items-center min-w-[354px]">
@@ -19,7 +15,6 @@ function Header(props) {
             <h1 className="text-3xl tracking-wider font-semibold">Abhirup </h1>
           </div>
         </div>
-        <SuccessRate count={taskCount} />
       </div>
       <button
         className="bg-red-700 hover:bg-red-800 px-4 py-1.5 sm:px-8 sm:py-3 h-max rounded font-bold tracking-wider active:scale-102 text-white"
