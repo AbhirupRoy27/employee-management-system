@@ -1,8 +1,19 @@
 import { LayoutDashboard, Menu, X } from 'lucide-react'
 import { useState } from 'react'
 
-function AdminNav({ setActiveTab }) {
+function AdminNav({ activeTab, setActiveTab }) {
   const [isOpen, setIsOpen] = useState(false)
+
+  const changeActiveTab = (toTab) => {
+    if (activeTab === toTab) return
+
+    console.log('changed')
+    if (toTab == 'AddEmpTask') {
+      return setActiveTab(toTab)
+    } else {
+      return setActiveTab(toTab)
+    }
+  }
   return (
     <div className="min-w-[200px] sm:w-1/10 bg-white/10 sm:min-h-screen">
       <div className="flex justify-between px-2 items-center">
@@ -29,7 +40,7 @@ function AdminNav({ setActiveTab }) {
               isOpen ? 'bg-black' : 'bg-white/10'
             } hover:bg-white/35 transition-all duration-300 ease border-b border-white/20 uppercase tracking-wider font-bold`}
             onClick={() => {
-              setActiveTab('AddEmpTask')
+              changeActiveTab('AddEmpTask')
               setIsOpen(false)
             }}
           >
@@ -40,7 +51,7 @@ function AdminNav({ setActiveTab }) {
               isOpen ? 'bg-black' : 'bg-white/10'
             } hover:bg-white/35 transition-all duration-300 ease border-b border-white/20 uppercase tracking-wider font-bold`}
             onClick={() => {
-              setActiveTab('AddEmpForm')
+              changeActiveTab('AddEmpForm')
               setIsOpen(false)
             }}
           >
