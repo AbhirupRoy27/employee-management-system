@@ -1,7 +1,8 @@
 import { Outlet } from 'react-router-dom'
-import Header from '../../Components/Dashboard/Common/Header'
 import { useState } from 'react'
 import Logout from '../Logout/Logout'
+import Header from '../../Components/Dashboard/Common/Header'
+import SuccessRate from '../../Components/Dashboard/Common/successRate'
 
 function EmpDashboard() {
   const [isActive, setIsActive] = useState(false)
@@ -10,6 +11,7 @@ function EmpDashboard() {
     <div className="bg-[#1C1C1C] min-w-[354px]">
       {isActive && <Logout setIsActive={setIsActive} />}
       <Header setIsActive={setIsActive} />
+      <SuccessRate />
       <Outlet />
     </div>
   )
