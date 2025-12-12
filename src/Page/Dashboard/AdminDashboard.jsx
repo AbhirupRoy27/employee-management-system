@@ -14,7 +14,7 @@ function AdminDashboard() {
     <div className="bg-[#1C1C1C] min-h-screen min-w-[354px]">
       {isActive && <Logout setIsActive={setIsActive} />}
       <div className="flex flex-col sm:flex-row text-white ">
-        <AdminNav setActiveTab={setActiveTab} />
+        <AdminNav activeTab={activeTab} setActiveTab={setActiveTab} />
         <div className="w-full">
           <Header setIsActive={setIsActive} />
           <SuccessRate />
