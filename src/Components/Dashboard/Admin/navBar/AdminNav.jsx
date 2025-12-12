@@ -7,7 +7,7 @@ function AdminNav({ activeTab, setActiveTab }) {
   const changeActiveTab = (toTab) => {
     if (activeTab === toTab) return
 
-    console.log('changed')
+    // console.log('changed')
     if (toTab == 'AddEmpTask') {
       return setActiveTab(toTab)
     } else {
