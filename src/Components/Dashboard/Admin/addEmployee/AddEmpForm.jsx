@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import CloseButton from './Components/CloseButton'
+import EmpDetails from './Components/EmpDetails'
 
 function AddEmpForm() {
   const [isOpen, setIsOpen] = useState(false)
@@ -11,7 +12,7 @@ function AddEmpForm() {
       >
         {isOpen ? <CloseButton /> : 'Add New Employeee'}
       </button>
-      {isOpen && <div className="">Here i will develop the Add user form</div>}
+      {isOpen && <EmpDetails />}
     </div>
   )
 }
