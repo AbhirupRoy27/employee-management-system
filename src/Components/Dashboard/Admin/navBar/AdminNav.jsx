@@ -28,8 +28,12 @@ function AdminNav({ activeTab, setActiveTab }) {
           </button>
         </section>
       </div>
-      <div className="sm:mt-10 bg-white/40">
-        <h1 className="uppercase tracking-wider font-bold py-4 text-center text-gray-950 text-xl">
+      <div className="sm:mt-10 bg-white/80">
+        <h1
+          className={`${
+            isOpen ? 'flex' : 'hidden'
+          } uppercase tracking-wider font-bold py-4 border-b border-black/30 text-gray-950 text-xl sm:flex justify-center items-center`}
+        >
           Dashboard
         </h1>
       </div>
