@@ -5,7 +5,6 @@ import handleLogout from '../../Utils/Logout/handleLogout'
 const bg_IMG =
   "bg-[url('https://plus.unsplash.com/premium_photo-1700604012496-e7888f924bf3?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDIyM3x8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=60&w=900')]"
 
-// const bg_IMG = ''
 function Logout({ setIsActive }) {
   const { isAdmin } = useUserContext()
   const navigate = useNavigate()

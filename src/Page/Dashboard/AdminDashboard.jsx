@@ -1,9 +1,9 @@
-import Header from '../../Components/Dashboard/Common/Header'
 import { useState } from 'react'
 import Logout from '../Logout/Logout'
 import AddEmpForm from '../../Components/Dashboard/Admin/addEmployee/AddEmpForm'
 import AdminForm from '../../Components/Dashboard/Admin/addTask/AdminForm'
 import AdminNav from '../../Components/Dashboard/Admin/navBar/AdminNav'
+import Header from '../../Shared/Components/Header'
 
 function AdminDashboard() {
   const [isActive, setIsActive] = useState(false)

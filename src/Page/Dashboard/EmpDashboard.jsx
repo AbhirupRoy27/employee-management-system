@@ -1,8 +1,8 @@
 import { Outlet } from 'react-router-dom'
 import { useState } from 'react'
 import Logout from '../Logout/Logout'
-import Header from '../../Components/Dashboard/Common/Header'
-import SuccessRate from '../../Components/Dashboard/Common/successRate'
+import Header from '../../Shared/Components/Header'
+import SuccessRate from '../../Shared/Components/successRate'
 
 function EmpDashboard() {
   const [isActive, setIsActive] = useState(false)

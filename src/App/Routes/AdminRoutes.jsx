@@ -6,7 +6,7 @@ import AdminDashboard from '../../Page/Dashboard/AdminDashboard'
 function AdminRoutes() {
   const naviagate = useNavigate()
   const { isAdmin } = useUserContext()
-  if (!isAdmin) return naviagate('/')
+  if (!isAdmin) return naviagate('/login/admin')
   return (
     <Routes>
       <Route

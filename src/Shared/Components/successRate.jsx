@@ -1,5 +1,5 @@
 import React from 'react'
-import { useTask } from '../../../Context/taskContext'
+import { useTask } from '../../Context/taskContext'
 
 function SuccessRate() {
   const { tasks } = useTask()
