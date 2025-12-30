@@ -1,12 +1,13 @@
 import { User } from 'lucide-react'
 import { useSearchParams } from 'react-router-dom'
-import { Loader } from '../TaskView'
+
 import Accept from '../../TaskListComponents/Buttons/Accept'
 import MarkDone from '../../TaskListComponents/Buttons/MarkDone'
 import Completed from '../../TaskListComponents/Buttons/Completed'
 import Failed from '../../TaskListComponents/Buttons/Failed'
 import { useEffect, useState } from 'react'
 import getTastById from '../../../../../Utils/getTasks/getTastById'
+import LoadingPage from '../../../../../Shared/Pages/LoadingPage'
 
 function TaskDetails() {
   const [searchParams] = useSearchParams()
@@ -22,7 +23,7 @@ function TaskDetails() {
   }, [task, setTask, taskid])
 
   if (details.length <= 0) {
-    return <Loader />
+    return <LoadingPage />
   }
 
   return (
