@@ -6,8 +6,8 @@ import MarkDone from '../../TaskListComponents/Buttons/MarkDone'
 import Completed from '../../TaskListComponents/Buttons/Completed'
 import Failed from '../../TaskListComponents/Buttons/Failed'
 import { useEffect, useState } from 'react'
-import getTastById from '../../../../../Utils/getTasks/getTastById'
-import LoadingPage from '../../../../../Shared/Pages/LoadingPage'
+import getTastById from '../../../../../../Utils/getTasks/getTastById'
+import LoadingPage from '../../../../../../Shared/Pages/LoadingPage'
 
 function TaskDetails() {
   const [searchParams] = useSearchParams()

@@ -1,11 +1,11 @@
 // import React, { useEffect, useState } from 'react'
 import React from 'react'
-import { useFilterTask } from '../../../Context/filterTaskContext'
-import taskInfo from '../../../DB/taskInfo.json'
-import getTasksByFilter from '../../../Utils/getTasks/getTasksByFilter'
+import taskInfo from '../../../../DB/taskInfo.json'
+import getTasksByFilter from '../../../../Utils/getTasks/getTasksByFilter'
 import TaskInfoLoader from './TaskView/Components/TaskInfoLoader'
-import { useTaskCount } from '../../../Context/taskCountContext'
+import { useTaskCount } from '../../../../Context/taskCountContext'
 import { useNavigate } from 'react-router-dom'
+import { useFilterTask } from '../../../../Context/filterTaskContext'
 // import getTaskCounts from '../../../Utils/getTasks/getTaskCounts'
 
 function TaskInfo() {

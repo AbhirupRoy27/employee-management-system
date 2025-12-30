@@ -1,4 +1,4 @@
-import handleEmpListClick from '../../../../Utils/Emp-Dashboard/handleEmpListClick'
+import handleEmpListClick from '../../../../../Utils/Emp-Dashboard/handleEmpListClick'
 import { useNavigate } from 'react-router-dom'
 
 function TaskListLeft({ task }) {

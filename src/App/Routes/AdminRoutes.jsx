@@ -9,14 +9,7 @@ function AdminRoutes() {
   if (!isAdmin) return naviagate('/login/admin')
   return (
     <Routes>
-      <Route
-        path="/admin-dashboard"
-        element={
-          // <AdminProtectedRoute>
-          <AdminDashboardLayout />
-          // </AdminProtectedRoute>
-        }
-      />
+      <Route path="/admin-dashboard" element={<AdminDashboardLayout />} />
     </Routes>
   )
 }
