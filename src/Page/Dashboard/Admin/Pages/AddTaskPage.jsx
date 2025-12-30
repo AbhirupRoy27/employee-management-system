@@ -1,11 +1,10 @@
-import { useCallback, useState } from 'react'
-import handleAdminForm, {
-  handleInput,
-} from '../../../../Utils/Admin/handleAdminForm'
-import AdDescription from './AdDescription'
-import AdFields from './AdFields'
+import React, { useCallback, useState } from 'react'
+import { handleInput } from '../utils/handleInput'
+import handleAdminForm from '../utils/handleAdminForm'
+import AdFields from '../Components/Add-Task-Form/AdFields'
+import AdDescription from '../Components/Add-Task-Form/AdDescription'
 
-function AdminForm() {
+function AddTaskPage() {
   const [adminFormData, setAdminFormData] = useState({
     task_title: '',
     deadline: '',
@@ -15,6 +14,7 @@ function AdminForm() {
     task_status: 'pending',
     task_given_by: 'abhirup605roy@gmail.com',
   })
+
   const [isUpdating, setIsUpdating] = useState(false)
 
   const onFieldChange = useCallback(
@@ -26,8 +26,6 @@ function AdminForm() {
     (e) => handleAdminForm(e, adminFormData, setAdminFormData, setIsUpdating),
     [adminFormData]
   )
-  // console.log(adminFormData)
-
   return (
     <div className="bg-[#161515e3] mx-4 sm:mx-15 px-4 py-3 text-white rounded-md tracking-widest">
       <form className="flex flex-col lg:flex-row" onSubmit={onSubmit}>
@@ -48,4 +46,4 @@ function AdminForm() {
   )
 }
 
-export default AdminForm
+export default AddTaskPage

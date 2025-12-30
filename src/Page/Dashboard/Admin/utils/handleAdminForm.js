@@ -63,11 +63,6 @@ export default function handleAdminForm(
     .finally(setIsUpdating(false))
 }
 
-export const handleInput = (e, setAdminFormData) => {
-  const { name, value } = e.target
-  setAdminFormData((prev) => ({ ...prev, [name]: value }))
-}
-
 const addTask = async (adminFormData) => {
   const { data } = await axios.post(
     'https://ems-backend-iota-wine.vercel.app/api/admin/add-task',

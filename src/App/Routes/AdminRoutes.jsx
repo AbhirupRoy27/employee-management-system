@@ -1,7 +1,7 @@
 import React from 'react'
 import { useUserContext } from '../../Context/Usercontext'
 import { Route, Routes, useNavigate } from 'react-router-dom'
-import AdminDashboard from '../../Page/Dashboard/AdminDashboard'
+import AdminDashboardLayout from '../../Page/Dashboard/Admin/Layout/AdminDashboardLayout'
 
 function AdminRoutes() {
   const naviagate = useNavigate()
@@ -13,7 +13,7 @@ function AdminRoutes() {
         path="/admin-dashboard"
         element={
           // <AdminProtectedRoute>
-          <AdminDashboard />
+          <AdminDashboardLayout />
           // </AdminProtectedRoute>
         }
       />
