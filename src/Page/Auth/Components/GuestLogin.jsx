@@ -16,7 +16,7 @@ function GuestLogin() {
           Employee
         </p>
         <p
-          onClick={() => navigate('/admin-dashboard')}
+          onClick={() => navigate('/admin/admin-dashboard')}
           className="font-semibold w-[105px] flex  justify-center text-gray-200 bg-gray-50/10 py-2 px-4 rounded-lg border border-gray-50/10 hover:bg-gray-50/20 transition-colors duration-300 ease-in-out"
         >
           Admin

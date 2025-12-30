@@ -3,22 +3,18 @@ import { useNavigate } from 'react-router-dom'
 import dashboardNavigator from '../../../Utils/Admin/dashboardNavigator'
 import generateToken from '../../../Utils/Login/Token'
 import adminLogin from '../../../Utils/Admin/adminLogin'
+import { Loader } from 'lucide-react'
 
-function AdminForm({ setIsChecking }) {
+function AdminForm() {
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
   const [doRemember, setDoRemember] = useState(false)
+  const [isChecking, setIsChecking] = useState(false)
   const navigate = useNavigate()
 
   const handleSubmit = async (e) => {
     e.preventDefault()
     setIsChecking(true)
-    if (email === '' || pass === '') {
-      return setTimeout(() => {
-        setIsChecking(false)
-        alert('Invalid Username/Password')
-      }, 2000)
-    }
 
     const inputs = { email: email, password: pass }
     const response = await adminLogin(inputs)
@@ -30,11 +26,25 @@ function AdminForm({ setIsChecking }) {
 
       setEmail('')
       setPass('')
+      setIsChecking(false)
       dashboardNavigator('/admin-dashboard', navigate)
     } else {
       return alert('wrong Credentials')
     }
   }
+
+  if (isChecking) {
+    return (
+      <>
+        <div className="fixed left-0 h-screen w-screen bg-black text-white flex gap-2 justify-center items-center text-4xl">
+          Checking Session{' '}
+          <Loader color="oklch(44.6% 0.043 257.281)" size={60} />
+          <br />
+        </div>
+      </>
+    )
+  }
+
   return (
     <div className="w-[93%] sm:w-[80%]  lg:w-[75%] xl:w-[60%] flex flex-col">
       <form onSubmit={(e) => handleSubmit(e)} className="w-full">

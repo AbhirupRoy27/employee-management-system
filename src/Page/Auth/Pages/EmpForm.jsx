@@ -1,39 +1,43 @@
 import { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
-import dashboardNavigator from '../../../Utils/Admin/dashboardNavigator'
-import generateToken from '../../../Utils/Login/Token'
+import handleSubmit from '../utils/handleSubmitEmp'
+import { Loader } from 'lucide-react'
 
-function Form({ setIsChecking }) {
+function Form() {
   const [email, setEmail] = useState('')
   const [pass, setPass] = useState('')
+  const [isChecking, setIsChecking] = useState(false)
   const [doRemember, setDoRemember] = useState(false)
   const navigate = useNavigate()
 
-  const handleSubmit = (e) => {
-    e.preventDefault()
-    setIsChecking(true)
-    if (email === '' || pass === '') {
-      return setTimeout(() => {
-        setIsChecking(false)
-        alert('Invalid Username/Password')
-      }, 2000)
-    }
-
-    const token = generateToken()
-    localStorage.setItem('emp-token', token)
-    localStorage.setItem('role', 'employee')
-
-    console.log({
-      user_email: email,
-      password: pass,
-    })
-    setEmail('')
-    setPass('')
-    dashboardNavigator('/Employee-dashboard', navigate)
+  if (isChecking) {
+    return (
+      <>
+        <div className="fixed left-0 h-screen w-screen bg-black text-white flex gap-2 justify-center items-center text-4xl">
+          Checking Session{' '}
+          <Loader color="oklch(44.6% 0.043 257.281)" size={60} />
+          <br />
+        </div>
+      </>
+    )
   }
+
   return (
     <div className="w-[93%] sm:w-[80%]  lg:w-[75%] xl:w-[60%] flex flex-col">
-      <form onSubmit={(e) => handleSubmit(e)} className="w-full">
+      <form
+        onSubmit={(e) =>
+          handleSubmit(
+            e,
+            setIsChecking,
+            setEmail,
+            setPass,
+            navigate,
+            email,
+            pass
+          )
+        }
+        className="w-full"
+      >
         <div className="flex flex-col gap-2">
           <label htmlFor="email" className="ml-4 cursor-pointer">
             Email
@@ -44,6 +48,7 @@ function Form({ setIsChecking }) {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email (required)"
             type="email"
+            required={true}
             className="outline-none bg-gray-50 rounded-full w-full  px-6 py-3 text-black placeholder:text-gray-400  focus:placeholder:text-black focus:bg-gray-50/90 tracking-wider"
           />
           <label htmlFor="password" className=" ml-4 cursor-pointer">
@@ -54,6 +59,7 @@ function Form({ setIsChecking }) {
             value={pass}
             onChange={(e) => setPass(e.target.value)}
             placeholder="Password (required)"
+            required={true}
             type={doRemember ? 'text' : 'password'}
             className="outline-none bg-gray-50 rounded-full w-full  px-6 py-3 text-black placeholder:text-gray-400 focus:placeholder:text-black focus:bg-gray-50/90 tracking-wider"
           />
