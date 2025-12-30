@@ -48,6 +48,7 @@ function AdminForm({ setIsChecking }) {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email (required)"
             type="email"
+            required={true}
             className="outline-none bg-gray-50 rounded-full w-full  px-6 py-3 text-black placeholder:text-gray-400 transform transition-all duration-300 focus:placeholder:text-black focus:bg-gray-50/90 tracking-wider"
           />
           <label htmlFor="password" className=" ml-4 cursor-pointer">
@@ -56,6 +57,7 @@ function AdminForm({ setIsChecking }) {
           <input
             id="password"
             value={pass}
+            required={true}
             onChange={(e) => setPass(e.target.value)}
             placeholder="Password (required)"
             type={doRemember ? 'text' : 'password'}
@@ -83,7 +85,7 @@ function AdminForm({ setIsChecking }) {
         <div className="flex justify-center items-center mt-4">
           <button
             type="submit"
-            className=" w-2/4 bg-emerald-800 transform transition-all duration-300 hover:bg-emerald-900 font-bold px-10 text-xl py-3 rounded-full cursor-pointer tracking-wider active:scale-102"
+            className=" bg-emerald-800 transform transition-all duration-300 hover:bg-emerald-900 font-bold px-10 text-xl py-3 rounded-full cursor-pointer tracking-wider active:scale-102"
           >
             Admin Login
           </button>
